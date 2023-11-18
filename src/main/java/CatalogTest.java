@@ -2,10 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-/**
- *
- * @author Andrei
- */
 public class CatalogTest {
     public static void main(String[] args) {
         // cream specializarea CTI cu 3 materii
