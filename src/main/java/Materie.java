@@ -5,14 +5,12 @@
 public class Materie {
     String nume;
     String profesor;
-    String laborant;
     int nrCredite;
 
     // constructor gol
     public Materie(){
         nume="NULL";
         profesor = "NULL";
-        laborant = "NULL";
         nrCredite=0;
 
     }
