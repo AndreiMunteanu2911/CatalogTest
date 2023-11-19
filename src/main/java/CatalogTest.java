@@ -1,6 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
+import java.util.ArrayList;
 
 public class CatalogTest {
     public static void main(String[] args) {
@@ -31,10 +29,20 @@ public class CatalogTest {
         IE.adaugaMaterie(IE_2);
         IE.adaugaMaterie(IE_3);
 
-        // test toString
-        System.out.println(CTI.toString());
-        System.out.println(IS.toString());
-        System.out.println(IE.toString());
-
+        // test toString Specializari
+//        System.out.println(CTI.toString());
+//        System.out.println(IS.toString());
+//        System.out.println(IE.toString());
+        
+        // cream facultatea FACIEE
+        Adresa adresaFACIEE = new Adresa("Galati", "Galati", "Strada Stiintei", 2, 800146, "+0236 470 905");
+        ArrayList < Specializare > specializari = new ArrayList < Specializare >();
+        specializari.add(CTI);
+        specializari.add(IS);
+        specializari.add(IE);
+        Facultate FACIEE = new Facultate("Facultatea de Automatică, Calculatoare, Inginerie Electrică și Electronică", adresaFACIEE, "decanat.faciee@ugal.ro", 1000, 50, specializari);
+        
+        // test toString Facultate
+        System.out.println(FACIEE.toString());
     }
 }
