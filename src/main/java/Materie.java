@@ -1,6 +1,7 @@
 // Munteanu Andrei
 
 public class Materie {
+
     String nume;
     String profesor;
     int nrCredite;

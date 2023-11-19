@@ -3,14 +3,15 @@
 import java.util.ArrayList;
 
 public class Specializare {
+
     String nume;
-    ArrayList < Materie > materii;
+    ArrayList< Materie> materii;
     int nrLocuri;
 
     // constructor fara parametrii
     public Specializare() {
         nume = "NULL";
-        materii = new ArrayList < Materie > ();
+        materii = new ArrayList< Materie>();
         nrLocuri = 0;
 
     }
@@ -18,12 +19,12 @@ public class Specializare {
     // constructor cu parametrii partiali
     public Specializare(String nume, int nrLocuri) {
         this.nume = nume;
-        materii = new ArrayList < Materie > ();
+        materii = new ArrayList< Materie>();
         this.nrLocuri = nrLocuri;
     }
 
     // constructor cu parametrii
-    public Specializare(String nume, ArrayList < Materie > materii, int nrLocuri) {
+    public Specializare(String nume, ArrayList< Materie> materii, int nrLocuri) {
         this.nume = nume;
         this.materii = materii;
         this.nrLocuri = nrLocuri;

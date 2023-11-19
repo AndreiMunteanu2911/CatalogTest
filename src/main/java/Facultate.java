@@ -3,13 +3,13 @@
 import java.util.ArrayList;
 
 public class Facultate {
+
     String nume;
     Adresa adresa;
     String email;
     int nrStudenti;
     int nrProfesori;
-    ArrayList < Specializare > specializari;
-
+    ArrayList< Specializare> specializari;
 
     public Facultate() {
         nume = "NULL";
@@ -17,10 +17,10 @@ public class Facultate {
         email = "NULL";
         nrStudenti = 0;
         nrProfesori = 0;
-        specializari = new ArrayList < Specializare > ();
+        specializari = new ArrayList< Specializare>();
     }
 
-    public Facultate(String nume, Adresa adresa, String email, int nrStudenti, int nrProfesori, ArrayList < Specializare > specializari) {
+    public Facultate(String nume, Adresa adresa, String email, int nrStudenti, int nrProfesori, ArrayList< Specializare> specializari) {
         this.nume = nume;
         this.adresa = adresa;
         this.email = email;
@@ -28,14 +28,14 @@ public class Facultate {
         this.nrProfesori = nrProfesori;
         this.specializari = specializari;
     }
-    
+
     public Facultate(String nume, Adresa adresa, String email, int nrStudenti, int nrProfesori) {
         this.nume = nume;
         this.adresa = adresa;
         this.email = email;
         this.nrStudenti = nrStudenti;
         this.nrProfesori = nrProfesori;
-        this.specializari = new ArrayList < Specializare > ();
+        this.specializari = new ArrayList< Specializare>();
     }
 
     public Facultate(Facultate obj) {

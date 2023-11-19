@@ -1,6 +1,7 @@
 // Bodea Marius-Theodor
 
 public class Adresa {
+
     String judet;
     String oras;
     String numeleStrazii;
