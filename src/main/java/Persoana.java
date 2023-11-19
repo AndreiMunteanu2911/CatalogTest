@@ -6,7 +6,7 @@
 public class Persoana {
     int varsta;
     String nume,prenume,CNP;
-     Adresa adresa;
+    Adresa adresa;
 
     //constructor fara parametrii
     public Persoana(){
@@ -23,6 +23,15 @@ public class Persoana {
         this.prenume=prenume;
         this.CNP=CNP;
         this.adresa=adresa;
+    }
+    //constructor cu toate atributele 2
+    public Persoana(int varsta,String nume,String prenume,String CNP,String judet, String oras, String numeleStrazii, int nrStrazii, int codPostal, String nrTelefon){
+        this.varsta=varsta;
+        this.nume=nume;
+        this.prenume=prenume;
+        this.CNP=CNP;
+        this.adresa=new Adresa(judet,oras, numeleStrazii, nrStrazii, codPostal, nrTelefon);
+        
     }
     //constructor copiere
     public Persoana(Persoana p) {
@@ -67,6 +76,6 @@ public class Persoana {
     //Afisare persoana
     @Override
     public String toString() {
-        return "Nume: "+this.nume+" Prenume: "+this.prenume+" CNP: "+this.CNP+" Varsta: "+this.varsta+"\n "+this.adresa.toString();
+        return "Nume: "+this.nume+" Prenume: "+this.prenume+" CNP: "+this.CNP+" Varsta: "+this.varsta+"\n"+this.adresa.toString();
     }
 }

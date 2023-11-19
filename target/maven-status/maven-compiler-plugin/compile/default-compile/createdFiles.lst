@@ -1,6 +1,9 @@
 Facultate.class
 Materie.class
-Specializare.class
 Adresa.class
-CatalogTest.class
 Catalog.class
+Persoana.class
+Profesor.class
+Specializare.class
+CatalogTest.class
+Student.class

@@ -36,13 +36,36 @@ public class CatalogTest {
         
         // cream facultatea FACIEE
         Adresa adresaFACIEE = new Adresa("Galati", "Galati", "Strada Stiintei", 2, 800146, "+0236 470 905");
-        ArrayList < Specializare > specializari = new ArrayList < Specializare >();
-        specializari.add(CTI);
-        specializari.add(IS);
-        specializari.add(IE);
-        Facultate FACIEE = new Facultate("Facultatea de Automatică, Calculatoare, Inginerie Electrică și Electronică", adresaFACIEE, "decanat.faciee@ugal.ro", 1000, 50, specializari);
+        // ArrayList < Specializare > specializari = new ArrayList < Specializare >();
+        //specializari.add(CTI);
+        //specializari.add(IS);
+        //specializari.add(IE);
+        //Facultate FACIEE = new Facultate("Facultatea de Automatică, Calculatoare, Inginerie Electrică și Electronică", adresaFACIEE, "decanat.faciee@ugal.ro", 1000, 50, specializari);
+        Facultate FACIEE = new Facultate("Facultatea de Automatică, Calculatoare, Inginerie Electrică și Electronică", adresaFACIEE, "decanat.faciee@ugal.ro", 1000, 50);
+        FACIEE.adaugaSpecializare(CTI);
+        FACIEE.adaugaSpecializare(IS);
+        FACIEE.adaugaSpecializare(IE);
         
         // test toString Facultate
         System.out.println(FACIEE.toString());
+        // test toString Student
+        Student stud1=new Student(20, "Emilian", "Toma", "502759275493", "Galati", "Galati", "Alexandru Ioan Cuza", 52,800216, "0236 469 100", FACIEE, CTI);
+        stud1.adaugaNota(CTI_1, 7);
+        stud1.adaugaNota(CTI_2, 4);
+        stud1.adaugaNota(CTI_3, 6);
+        System.out.println(stud1.toString());
+        
+        Student stud2=new Student(24, "Eugen", "Andreescu", "502684903855", "Galati", "Galati", "General Ioan Dragalina", 1,800290, "0800 896 622", FACIEE, IS);
+        stud2.adaugaNota(IS_1, 10);
+        stud2.adaugaNota(IS_2, 8);
+        stud2.adaugaNota(IS_3, 9);
+        System.out.println(stud2.toString());
+        
+        Student stud3=new Student(19, "Codrut", "Mihailescu", "5023359583", "Galati", "Galati", "Gheorghe Asachi", 2,800487, "0336 114 796", FACIEE, IE);
+        stud3.adaugaNota(IE_1, 3);
+        stud3.adaugaNota(IE_2, 6);
+        stud3.adaugaNota(IE_3, 5);
+        System.out.println(stud3.toString());
     }
+    // test toString Profesor
 }

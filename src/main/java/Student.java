@@ -2,11 +2,14 @@
  *
  * @author Tudor
  */
+import java.util.HashMap;
+
 public class Student extends Persoana{
     static int CounterNrMatricol=1;//se va incrementa la fiecare obiect nou/ constructor apelat si fiind static va fi retinut pt urm student
     int nrMatricol;
     Facultate facultate;
     Specializare specializare;
+    HashMap<Materie, Integer> note;
 
     //constructor fara parametrii
     public Student(){
@@ -15,14 +18,36 @@ public class Student extends Persoana{
         Student.CounterNrMatricol++;
         this.facultate=new Facultate();
         this.specializare=new Specializare();
+        this.note= new HashMap<>();
     }
 
     //constructor cu toti parametrii
-    public Student(int varsta, String nume, String prenume, String CNP, Adresa adresa, int nrMatricol, Facultate facultate, Specializare specializare) {
+    public Student(int varsta, String nume, String prenume, String CNP, Adresa adresa, int nrMatricol, Facultate facultate, Specializare specializare, HashMap<Materie, Integer> note) {
         super(varsta, nume, prenume, CNP, adresa);
         this.nrMatricol = nrMatricol;
         this.facultate = facultate;
         this.specializare = specializare;
+        this.note=note;
+    }
+    
+    //constructor cu toti parametrii 2 (adresa detaliata, fara note, nr matricol automat)
+    public Student(int varsta, String nume, String prenume, String CNP, String judet, String oras, String numeleStrazii, int nrStrazii, int codPostal, String nrTelefon, Facultate facultate, Specializare specializare) {
+        super( varsta, nume,prenume,CNP, judet, oras, numeleStrazii, nrStrazii, codPostal, nrTelefon);
+        this.nrMatricol = Student.CounterNrMatricol;
+        Student.CounterNrMatricol++;
+        this.facultate = facultate;
+        this.specializare = specializare;
+        this.note=new HashMap<>();
+    }
+    
+    //constructor cu toti parametrii 3 (nr matricol automat)
+    public Student(int varsta, String nume, String prenume, String CNP, String judet, String oras, String numeleStrazii, int nrStrazii, int codPostal, String nrTelefon, Facultate facultate, Specializare specializare, HashMap<Materie, Integer> note) {
+        super( varsta, nume,prenume,CNP, judet, oras, numeleStrazii, nrStrazii, codPostal, nrTelefon);
+        this.nrMatricol = Student.CounterNrMatricol;
+        Student.CounterNrMatricol++;
+        this.facultate = facultate;
+        this.specializare = specializare;
+        this.note=note;
     }
 
     //constructor cu parametrii Facultate si specializare
@@ -38,7 +63,6 @@ public class Student extends Persoana{
     public Student(Persoana p, Facultate facultate, Specializare specializare) {
         super(p);
         this.nrMatricol=Student.CounterNrMatricol;
-        Student.CounterNrMatricol++;
         this.facultate = facultate;
         this.specializare = specializare;
     }
@@ -46,11 +70,26 @@ public class Student extends Persoana{
     //constructor copiere student
     public Student(Student s){
         this.nrMatricol=Student.CounterNrMatricol;
-        Student.CounterNrMatricol++;
         this.facultate=s.facultate;
         this.specializare=s.specializare;
+        this.note=s.note;
+    }
+    
+    public void adaugaNota (Materie m, int nota){
+        this.note.put(m, nota);
+    }
+    public int getNota (Materie m){
+        return (this.note.get(m));
     }
 
+    public String toStringNote (){
+        String ret = new String("");
+        for (HashMap.Entry<Materie, Integer> set : this.note.entrySet()) {
+            ret=ret+ set.getKey().nume+": "+this.getNota(set.getKey())+"\n";
+        }
+        return ret;
+    }
+    
    //getteri
 
 
@@ -81,6 +120,7 @@ public class Student extends Persoana{
     }
     @Override
     public String toString() {
-        return super.toString()+" "+"NrMatricol: "+this.nrMatricol+" "+facultate.toString()+"\n "+specializare.toString();
+        // return super.toString()+" "+"NrMatricol: "+this.nrMatricol+" "+facultate.toString()+"\n "+specializare.toString()+this.toStringNote();
+        return super.toString()+"\n"+"NrMatricol: "+this.nrMatricol+"\n"+this.toStringNote();
     }
 }

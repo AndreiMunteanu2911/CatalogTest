@@ -28,6 +28,15 @@ public class Facultate {
         this.nrProfesori = nrProfesori;
         this.specializari = specializari;
     }
+    
+    public Facultate(String nume, Adresa adresa, String email, int nrStudenti, int nrProfesori) {
+        this.nume = nume;
+        this.adresa = adresa;
+        this.email = email;
+        this.nrStudenti = nrStudenti;
+        this.nrProfesori = nrProfesori;
+        this.specializari = new ArrayList < Specializare > ();
+    }
 
     public Facultate(Facultate obj) {
         this.nume = obj.nume;

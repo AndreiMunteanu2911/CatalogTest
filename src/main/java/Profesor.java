@@ -15,6 +15,13 @@ public class Profesor extends Persoana{
         this.facultate = facultate;
         this.materie = materie;
     }
+    
+    //constructor cu toti parametrii 2 (adresa detaliata)
+    public Profesor(int varsta, String nume, String prenume, String CNP, String judet, String oras, String numeleStrazii, int nrStrazii, int codPostal, String nrTelefon, Facultate facultate, Materie materie) {
+        super( varsta, nume,prenume,CNP, judet, oras, numeleStrazii, nrStrazii, codPostal, nrTelefon);
+        this.facultate = facultate;
+        this.materie=materie;
+    }
 
     //constructor cu parametrii Facultate si specializare
     public Profesor(Facultate facultate, Materie materie) {
