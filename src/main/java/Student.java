@@ -24,9 +24,9 @@ public class Student extends Persoana {
     }
 
     //constructor cu toti parametrii
-    public Student(int varsta, String nume, String prenume, String CNP, Adresa adresa, int nrMatricol, Facultate facultate, Specializare specializare, HashMap<Materie, Integer> note) {
+    public Student(int varsta, String nume, String prenume, String CNP, Adresa adresa, Facultate facultate, Specializare specializare, HashMap<Materie, Integer> note) {
         super(varsta, nume, prenume, CNP, adresa);
-        this.nrMatricol = nrMatricol;
+        this.nrMatricol = Student.CounterNrMatricol;
         this.facultate = facultate;
         this.specializare = specializare;
         this.note = note;

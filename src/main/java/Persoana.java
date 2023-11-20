@@ -64,20 +64,26 @@ public class Persoana {
     }
 
     //getteri
+
+
     public int getVarsta() {
-        return varsta;
+        return this.varsta;
     }
 
     public String getNume() {
-        return nume;
+        return this.nume;
     }
 
     public String getPrenume() {
-        return prenume;
+        return this.prenume;
     }
 
     public String getCNP() {
-        return CNP;
+        return this.CNP;
+    }
+
+    public Adresa getAdresa() {
+        return this.adresa;
     }
 
     //Afisare persoana

@@ -75,7 +75,7 @@ public class CatalogTest {
         System.out.println(prof2.toString());
         Profesor prof3 = new Profesor(35, "Georgiana", "Nita", "385938593850", "Galati", "Galati", "Bravilor", 49, 800171, "0236 418 060", FACIEE, IS_3, 3000);
         System.out.println(prof3.toString());
-        
-    
+
+
     }
 }
