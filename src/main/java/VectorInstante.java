@@ -1,6 +1,8 @@
+import java.util.ArrayList;
+
 public class VectorInstante {
     public static void main(String[] args) {
-        
+
         //10 instante pentru clasa Adresa
         Adresa[] adrese = new Adresa[10];
         adrese[0] = new Adresa("Judet1", "Oras1", "Strada1", 1, 12345, "123-456-789");
@@ -31,6 +33,74 @@ public class VectorInstante {
         for (int i = 0; i < adrese.length; i++) {
             System.out.println("Adresa " + (i + 1) + ": " + adrese[i].toString());
             System.out.println("Facultate " + (i + 1) + ": " + facultati[i].toString());
+            System.out.println();
+        }
+
+        //10 instante pentru clasa materii
+        Materie[] materii = new Materie[10];
+        materii[0] = new Materie("Materie1", 0);
+        materii[1] = new Materie("Materie2", 1);
+        materii[2] = new Materie("Materie3", 2);
+        materii[3] = new Materie("Materie4", 3);
+        materii[4] = new Materie("Materie5", 4);
+        materii[5] = new Materie("Materie6", 5);
+        materii[6] = new Materie("Materie7", 6);
+        materii[7] = new Materie("Materie8", 7);
+        materii[8] = new Materie("Materie9", 8);
+        materii[9] = new Materie("Materie10", 9);
+
+        ArrayList<Materie> m1 = new ArrayList<Materie>();
+        m1.add(materii[0]);
+        m1.add(materii[1]);
+        m1.add(materii[2]);
+
+        //10 instante pentru clasa Specializare
+        Specializare[] specializares = new Specializare[10];
+        specializares[0] = new Specializare("Specializare1", m1, 1);
+        specializares[1] = new Specializare("Specializare2", m1, 2);
+        specializares[2] = new Specializare("Specializare3", m1, 3);
+        specializares[3] = new Specializare("Specializare4", m1, 4);
+        specializares[4] = new Specializare("Specializare5", m1, 5);
+        specializares[5] = new Specializare("Specializare6", m1, 6);
+        specializares[6] = new Specializare("Specializare7", m1, 7);
+        specializares[7] = new Specializare("Specializare8", m1, 8);
+        specializares[8] = new Specializare("Specializare9", m1, 9);
+        specializares[9] = new Specializare("Specializare10", m1, 10);
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(materii[i].toString());
+            System.out.println( specializares[i].toString());
+            System.out.println();
+        }
+
+        //10 instante pentru clasa Student
+        Student[] stundenti = new Student[10];
+        stundenti[0] = new Student( 1, "nume1","prenume1", "CNP1", adrese[0],facultati[0] ,specializares[0]);
+        stundenti[1] = new Student(2, "nume2","prenume2", "CNP2", adrese[1],facultati[1] ,specializares[1]);
+        stundenti[2] = new Student(3, "nume3","prenume3", "CNP3", adrese[2],facultati[2] ,specializares[2]);
+        stundenti[3] = new Student(4, "nume4","prenume4", "CNP4", adrese[3],facultati[3] ,specializares[3]);
+        stundenti[4] = new Student(5, "nume5","prenume5", "CNP5", adrese[4],facultati[4] ,specializares[4]);
+        stundenti[5] = new Student(6, "nume6","prenume6", "CNP6", adrese[5],facultati[5] ,specializares[5]);
+        stundenti[6] = new Student(7, "nume7","prenume7", "CNP7", adrese[6],facultati[6] ,specializares[6]);
+        stundenti[7] = new Student(8, "nume8","prenume8", "CNP8", adrese[7],facultati[7] ,specializares[7]);
+        stundenti[8] = new Student(9, "nume9","prenume9", "CNP9", adrese[8],facultati[8] ,specializares[8]);
+        stundenti[9] = new Student(10, "nume10","prenume10", "CNP10", adrese[9],facultati[9] ,specializares[9]);
+
+        Profesor[] profesori = new Profesor[10];
+        profesori[0] = new Profesor( 1, "nume1","prenume1", "CNP1", adrese[0],facultati[0] ,materii[0],1);
+        profesori[1] = new Profesor(2, "nume2","prenume2", "CNP2", adrese[1],facultati[1] ,materii[1],2);
+        profesori[2] = new Profesor(3, "nume3","prenume3", "CNP3", adrese[2],facultati[2] ,materii[2],3);
+        profesori[3] = new Profesor(4, "nume4","prenume4", "CNP4", adrese[3],facultati[3] ,materii[3],4);
+        profesori[4] = new Profesor(5, "nume5","prenume5", "CNP5", adrese[4],facultati[4] ,materii[4],5);
+        profesori[5] = new Profesor(6, "nume6","prenume6", "CNP6", adrese[5],facultati[5] ,materii[5],6);
+        profesori[6] = new Profesor(7, "nume7","prenume7", "CNP7", adrese[6],facultati[6] ,materii[6],7);
+        profesori[7] = new Profesor(8, "nume8","prenume8", "CNP8", adrese[7],facultati[7] ,materii[7],8);
+        profesori[8] = new Profesor(9, "nume9","prenume9", "CNP9", adrese[8],facultati[8] ,materii[8],9);
+        profesori[9] = new Profesor(10, "nume10","prenume10", "CNP10", adrese[9],facultati[9] ,materii[9],10);
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(stundenti[i].toString());
+            System.out.println( profesori[i].toString());
             System.out.println();
         }
     }

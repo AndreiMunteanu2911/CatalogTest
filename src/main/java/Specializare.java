@@ -47,7 +47,7 @@ public class Specializare {
         String ret = new String("Specializarea: " + nume + "\n");
         ret = ret + "Nr de locuri: " + nrLocuri + "\nMaterii: " + "\n\n";
         for (int i = 0; i < materii.size(); i++) {
-            ret = ret + materii.get(i).toString() + "\n";
+            ret = ret +"o " + materii.get(i).toString() + "\n";
         }
         return ret;
     }

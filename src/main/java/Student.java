@@ -12,7 +12,7 @@ public class Student extends Persoana {
     Specializare specializare;
     HashMap < Materie, Integer > note;
 
-    //constructor fara parametrii
+    //constructor fara parametrii (nr matricol automat)
     public Student() {
         super();
         this.nrMatricol = Student.CounterNrMatricol;
@@ -22,13 +22,24 @@ public class Student extends Persoana {
         this.note = new HashMap < > ();
     }
 
-    //constructor cu toti parametrii
+    //constructor cu toti parametrii (nr matricol automat)
     public Student(int varsta, String nume, String prenume, String CNP, Adresa adresa, Facultate facultate, Specializare specializare, HashMap < Materie, Integer > note) {
         super(varsta, nume, prenume, CNP, adresa);
         this.nrMatricol = Student.CounterNrMatricol;
+        Student.CounterNrMatricol++;
         this.facultate = facultate;
         this.specializare = specializare;
         this.note = note;
+        this.facultate.cresteNrStudenti();
+    }
+    //constructor fara hashmap (nr matricol automat)
+    public Student(int varsta, String nume, String prenume, String CNP, Adresa adresa, Facultate facultate, Specializare specializare) {
+        super(varsta, nume, prenume, CNP, adresa);
+        this.nrMatricol = Student.CounterNrMatricol;
+        Student.CounterNrMatricol++;
+        this.facultate = facultate;
+        this.specializare = specializare;
+        this.note = new HashMap < > ();
         this.facultate.cresteNrStudenti();
     }
 
@@ -68,6 +79,7 @@ public class Student extends Persoana {
     public Student(Persoana p, Facultate facultate, Specializare specializare) {
         super(p);
         this.nrMatricol = Student.CounterNrMatricol;
+        Student.CounterNrMatricol++;
         this.facultate = facultate;
         this.specializare = specializare;
         this.facultate.cresteNrStudenti();
@@ -76,20 +88,24 @@ public class Student extends Persoana {
     //constructor copiere student
     public Student(Student s) {
         this.nrMatricol = Student.CounterNrMatricol;
+        Student.CounterNrMatricol++;
         this.facultate = s.facultate;
         this.specializare = s.specializare;
         this.note = s.note;
         this.facultate.cresteNrStudenti();
     }
 
+    //adauga note
     public void adaugaNota(Materie m, int nota) {
         this.note.put(m, nota);
     }
 
+    //getter note
     public int getNota(Materie m) {
         return (this.note.get(m));
     }
 
+    //afisare note prin toStringNote
     public String toStringNote() {
         String ret = new String("");
         for (HashMap.Entry < Materie, Integer > set: this.note.entrySet()) {
@@ -124,6 +140,11 @@ public class Student extends Persoana {
         this.specializare = specializare;
     }
 
+    //metoda toString dar fara afisarea notelor
+    public String toStringfaranote() {
+        // return super.toString()+" "+"NrMatricol: "+this.nrMatricol+" "+facultate.toString()+"\n "+specializare.toString()+this.toStringNote();
+        return "Student\n" + super.toString() + "\n" + "NrMatricol: " + this.nrMatricol ;
+    }
     //metoda toString()
     @Override
     public String toString() {
