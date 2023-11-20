@@ -1,6 +1,7 @@
 Facultate.class
 Materie.class
 Adresa.class
+VectorInstante.class
 Persoana.class
 Catalog.class
 Profesor.class
