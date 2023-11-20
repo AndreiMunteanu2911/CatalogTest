@@ -43,7 +43,7 @@ public class CatalogTest {
         //specializari.add(IS);
         //specializari.add(IE);
         //Facultate FACIEE = new Facultate("Facultatea de Automatică, Calculatoare, Inginerie Electrică și Electronică", adresaFACIEE, "decanat.faciee@ugal.ro", 1000, 50, specializari);
-        Facultate FACIEE = new Facultate("Facultatea de Automatică, Calculatoare, Inginerie Electrică si Electronică", adresaFACIEE, "decanat.faciee@ugal.ro", 1000, 50);
+        Facultate FACIEE = new Facultate("Facultatea de Automatică, Calculatoare, Inginerie Electrică si Electronică", adresaFACIEE, "decanat.faciee@ugal.ro");
         FACIEE.adaugaSpecializare(CTI);
         FACIEE.adaugaSpecializare(IS);
         FACIEE.adaugaSpecializare(IE);
@@ -76,6 +76,7 @@ public class CatalogTest {
         Profesor prof3 = new Profesor(35, "Georgiana", "Nita", "385938593850", "Galati", "Galati", "Bravilor", 49, 800171, "0236 418 060", FACIEE, IS_3, 3000);
         System.out.println(prof3.toString());
 
-
+        //aici vedem daca s-au modificat nrStudenti si nrProfesori
+        System.out.println(FACIEE.toString());
     }
 }

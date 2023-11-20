@@ -39,6 +39,7 @@ public class Adresa {
         this.nrTelefon = obj.nrTelefon;
     }
 
+    //metoda toString()
     @Override
     public String toString() {
         return "Adresa: " + judet + ", " + oras + ", " + numeleStrazii + " " + numarulStrazii + ", Cod Postal: " + codPostal + ", Telefon: " + nrTelefon;

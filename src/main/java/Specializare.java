@@ -41,6 +41,7 @@ public class Specializare {
         this.materii.add(m);
     }
 
+    //metoda toString()
     @Override
     public String toString() {
         String ret = new String("Specializarea: " + nume + "\n");

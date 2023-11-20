@@ -30,6 +30,7 @@ public class Student extends Persoana {
         this.facultate = facultate;
         this.specializare = specializare;
         this.note = note;
+        this.facultate.cresteNrStudenti();
     }
 
     //constructor cu toti parametrii 2 (adresa detaliata, fara note, nr matricol automat)
@@ -40,6 +41,7 @@ public class Student extends Persoana {
         this.facultate = facultate;
         this.specializare = specializare;
         this.note = new HashMap<>();
+        this.facultate.cresteNrStudenti();
     }
 
     //constructor cu toti parametrii 3 (nr matricol automat)
@@ -50,6 +52,7 @@ public class Student extends Persoana {
         this.facultate = facultate;
         this.specializare = specializare;
         this.note = note;
+        this.facultate.cresteNrStudenti();
     }
 
     //constructor cu parametrii Facultate si specializare
@@ -59,6 +62,7 @@ public class Student extends Persoana {
         Student.CounterNrMatricol++;
         this.facultate = facultate;
         this.specializare = specializare;
+        this.facultate.cresteNrStudenti();
     }
 
     //constructor de copiere cu persoana
@@ -67,6 +71,7 @@ public class Student extends Persoana {
         this.nrMatricol = Student.CounterNrMatricol;
         this.facultate = facultate;
         this.specializare = specializare;
+        this.facultate.cresteNrStudenti();
     }
 
     //constructor copiere student
@@ -75,6 +80,7 @@ public class Student extends Persoana {
         this.facultate = s.facultate;
         this.specializare = s.specializare;
         this.note = s.note;
+        this.facultate.cresteNrStudenti();
     }
 
     public void adaugaNota(Materie m, int nota) {
@@ -119,9 +125,10 @@ public class Student extends Persoana {
         this.specializare = specializare;
     }
 
+    //metoda toString()
     @Override
     public String toString() {
         // return super.toString()+" "+"NrMatricol: "+this.nrMatricol+" "+facultate.toString()+"\n "+specializare.toString()+this.toStringNote();
-        return super.toString() + "\n" + "NrMatricol: " + this.nrMatricol + "\n" + this.toStringNote();
+        return "Student\n"+super.toString() + "\n" + "NrMatricol: " + this.nrMatricol + "\n" + this.toStringNote();
     }
 }

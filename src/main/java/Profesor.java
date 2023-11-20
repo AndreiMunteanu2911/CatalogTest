@@ -19,6 +19,7 @@ public class Profesor extends Persoana {
         this.facultate = facultate;
         this.materie = materie;
         this.salariu = salariu;
+        this.facultate.cresteNrProfesor();
     }
 
     //constructor cu toti parametrii 2 (adresa detaliata)
@@ -27,13 +28,7 @@ public class Profesor extends Persoana {
         this.facultate = facultate;
         this.materie = materie;
         this.salariu = salariu;
-    }
-
-    //constructor cu parametrii Facultate si specializare
-    public Profesor(Facultate facultate, Materie materie) {
-        super();
-        this.facultate = facultate;
-        this.materie = materie;
+        this.facultate.cresteNrProfesor();
     }
 
     //constructor de copiere cu persoana
@@ -42,6 +37,7 @@ public class Profesor extends Persoana {
         this.facultate = facultate;
         this.materie = materie;
         this.salariu = salariu;
+        this.facultate.cresteNrProfesor();
     }
 
     //constructor copiere profesor
@@ -49,7 +45,8 @@ public class Profesor extends Persoana {
         super(s);
         this.facultate = s.facultate;
         this.materie = s.materie;
-        this.salariu = salariu;
+        this.salariu = s.salariu;
+        this.facultate.cresteNrProfesor();
     }
 
     //getteri
@@ -70,9 +67,10 @@ public class Profesor extends Persoana {
         this.materie = materie;
     }
 
+    //metoda toString()
     @Override
     public String toString() {
         //return super.toString()+" "+facultate.toString()+" "+materie.toString() +this.salariu;
-        return super.toString() + "\n" + facultate.nume + "\n" + materie.nume + "\nSalariu: " + this.salariu + "\n";
+        return "Profesor\n"+super.toString() + "\n" + facultate.nume + "\n" + materie.nume + "\nSalariu: " + this.salariu + "\n";
     }
 }

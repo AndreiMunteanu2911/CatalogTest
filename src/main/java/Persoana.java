@@ -65,7 +65,6 @@ public class Persoana {
 
     //getteri
 
-
     public int getVarsta() {
         return this.varsta;
     }
@@ -86,7 +85,7 @@ public class Persoana {
         return this.adresa;
     }
 
-    //Afisare persoana
+    //metoda toString()
     @Override
     public String toString() {
         return "Nume: " + this.nume + " Prenume: " + this.prenume + " CNP: " + this.CNP + " Varsta: " + this.varsta + "\n" + this.adresa.toString();

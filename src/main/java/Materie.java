@@ -27,6 +27,37 @@ public class Materie {
         this.nrCredite = m.nrCredite;
     }
 
+    //getteri
+
+
+    public String getNume() {
+        return this.nume;
+    }
+
+    public String getProfesor() {
+        return this.profesor;
+    }
+
+    public int getNrCredite() {
+        return this.nrCredite;
+    }
+
+    //setteri
+
+
+    public void setNume(String nume) {
+        this.nume = nume;
+    }
+
+    public void setProfesor(String profesor) {
+        this.profesor = profesor;
+    }
+
+    public void setNrCredite(int nrCredite) {
+        this.nrCredite = nrCredite;
+    }
+
+    //metoda toString()
     @Override
     public String toString() {
         return nume + "\nProfesor: " + profesor + "\nNr. de credite: " + nrCredite + "\n";
