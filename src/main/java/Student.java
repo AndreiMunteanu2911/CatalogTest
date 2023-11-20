@@ -1,4 +1,3 @@
-
 /**
  *
  * @author Tudor
@@ -7,11 +6,11 @@ import java.util.HashMap;
 
 public class Student extends Persoana {
 
-    static int CounterNrMatricol = 1;//se va incrementa la fiecare obiect nou/ constructor apelat si fiind static va fi retinut pt urm student
+    static int CounterNrMatricol = 1; //se va incrementa la fiecare obiect nou/ constructor apelat si fiind static va fi retinut pt urm student
     int nrMatricol;
     Facultate facultate;
     Specializare specializare;
-    HashMap<Materie, Integer> note;
+    HashMap < Materie, Integer > note;
 
     //constructor fara parametrii
     public Student() {
@@ -20,11 +19,11 @@ public class Student extends Persoana {
         Student.CounterNrMatricol++;
         this.facultate = new Facultate();
         this.specializare = new Specializare();
-        this.note = new HashMap<>();
+        this.note = new HashMap < > ();
     }
 
     //constructor cu toti parametrii
-    public Student(int varsta, String nume, String prenume, String CNP, Adresa adresa, Facultate facultate, Specializare specializare, HashMap<Materie, Integer> note) {
+    public Student(int varsta, String nume, String prenume, String CNP, Adresa adresa, Facultate facultate, Specializare specializare, HashMap < Materie, Integer > note) {
         super(varsta, nume, prenume, CNP, adresa);
         this.nrMatricol = Student.CounterNrMatricol;
         this.facultate = facultate;
@@ -40,12 +39,12 @@ public class Student extends Persoana {
         Student.CounterNrMatricol++;
         this.facultate = facultate;
         this.specializare = specializare;
-        this.note = new HashMap<>();
+        this.note = new HashMap < > ();
         this.facultate.cresteNrStudenti();
     }
 
     //constructor cu toti parametrii 3 (nr matricol automat)
-    public Student(int varsta, String nume, String prenume, String CNP, String judet, String oras, String numeleStrazii, int nrStrazii, int codPostal, String nrTelefon, Facultate facultate, Specializare specializare, HashMap<Materie, Integer> note) {
+    public Student(int varsta, String nume, String prenume, String CNP, String judet, String oras, String numeleStrazii, int nrStrazii, int codPostal, String nrTelefon, Facultate facultate, Specializare specializare, HashMap < Materie, Integer > note) {
         super(varsta, nume, prenume, CNP, judet, oras, numeleStrazii, nrStrazii, codPostal, nrTelefon);
         this.nrMatricol = Student.CounterNrMatricol;
         Student.CounterNrMatricol++;
@@ -93,7 +92,7 @@ public class Student extends Persoana {
 
     public String toStringNote() {
         String ret = new String("");
-        for (HashMap.Entry<Materie, Integer> set : this.note.entrySet()) {
+        for (HashMap.Entry < Materie, Integer > set: this.note.entrySet()) {
             ret = ret + set.getKey().nume + ": " + this.getNota(set.getKey()) + "\n";
         }
         return ret;
@@ -129,6 +128,6 @@ public class Student extends Persoana {
     @Override
     public String toString() {
         // return super.toString()+" "+"NrMatricol: "+this.nrMatricol+" "+facultate.toString()+"\n "+specializare.toString()+this.toStringNote();
-        return "Student\n"+super.toString() + "\n" + "NrMatricol: " + this.nrMatricol + "\n" + this.toStringNote();
+        return "Student\n" + super.toString() + "\n" + "NrMatricol: " + this.nrMatricol + "\n" + this.toStringNote();
     }
 }

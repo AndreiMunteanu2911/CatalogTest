@@ -1,4 +1,3 @@
-
 public class Profesor extends Persoana {
 
     Facultate facultate;
@@ -71,6 +70,6 @@ public class Profesor extends Persoana {
     @Override
     public String toString() {
         //return super.toString()+" "+facultate.toString()+" "+materie.toString() +this.salariu;
-        return "Profesor\n"+super.toString() + "\n" + facultate.nume + "\n" + materie.nume + "\nSalariu: " + this.salariu + "\n";
+        return "Profesor\n" + super.toString() + "\n" + facultate.nume + "\n" + materie.nume + "\nSalariu: " + this.salariu + "\n";
     }
 }

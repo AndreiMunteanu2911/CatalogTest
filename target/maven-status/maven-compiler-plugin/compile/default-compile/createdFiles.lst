@@ -1,8 +1,8 @@
 Facultate.class
 Materie.class
 Adresa.class
-Catalog.class
 Persoana.class
+Catalog.class
 Profesor.class
 Specializare.class
 CatalogTest.class

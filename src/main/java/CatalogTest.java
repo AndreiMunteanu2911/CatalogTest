@@ -1,10 +1,20 @@
-
 import java.util.ArrayList;
 import javax.swing.SwingUtilities;
 
 public class CatalogTest {
 
     public static void main(String[] args) {
+        
+//      Adresa adresaFEFS = new Adresa("Galati", "Galati", "Strada Garii", 63, 800003, "+0336 130 171");
+//      Adresa adresaFDSA = new Adresa("Galati", "Galati", "Strada Domneasca", 111, 800201, "+0236 493 370");
+//      System.out.println(adresaFEFS.toString());
+//      System.out.println(adresaFDSA.toString());
+//      Facultate FEFS = new Facultate("Facultatea de Educație Fizică și Sport", adresaFEFS, "secretariat.fefs@ugal.ro", 1000, 50);
+//      Facultate FDSA = new Facultate("Facultatea de Drept și Științe Administrative", adresaFDSA, "secretariat.fdsa@ugal.ro", 800, 40);
+//      FEFS.afisareFacultate();
+//      FDSA.afisareFacultate(); 
+        
+       
         // cream specializarea CTI cu 3 materii
         Materie CTI_1 = new Materie("Proiectarea cu microprocesoare", "I. Susnea", 5);
         Materie CTI_2 = new Materie("Retele de calculatoare II", "C. Niculita", 4);
@@ -32,24 +42,20 @@ public class CatalogTest {
         IE.adaugaMaterie(IE_2);
         IE.adaugaMaterie(IE_3);
 
-        //test toString Specializari
-        //System.out.println(CTI.toString());
-        //System.out.println(IS.toString());
-        //System.out.println(IE.toString());
-        //cream facultatea FACIEE
+        //cream adresa facultatii FACIEE
         Adresa adresaFACIEE = new Adresa("Galati", "Galati", "Strada Stiintei", 2, 800146, "+0236 470 905");
-        //ArrayList < Specializare > specializari = new ArrayList < Specializare >();
-        //specializari.add(CTI);
-        //specializari.add(IS);
-        //specializari.add(IE);
-        //Facultate FACIEE = new Facultate("Facultatea de Automatică, Calculatoare, Inginerie Electrică și Electronică", adresaFACIEE, "decanat.faciee@ugal.ro", 1000, 50, specializari);
+
+        //cream facultatea FACIEE
         Facultate FACIEE = new Facultate("Facultatea de Automatică, Calculatoare, Inginerie Electrică si Electronică", adresaFACIEE, "decanat.faciee@ugal.ro");
+
+        //adaugam specializarile
         FACIEE.adaugaSpecializare(CTI);
         FACIEE.adaugaSpecializare(IS);
         FACIEE.adaugaSpecializare(IE);
 
-        // test toString Facultate
+        // test toString Facultate (afiseaza toate datele facultatii, inclusiv specializarile acesteia)
         System.out.println(FACIEE.toString());
+
         // test toString Student
         Student stud1 = new Student(20, "Emilian", "Toma", "502759275493", "Galati", "Galati", "Alexandru Ioan Cuza", 52, 800216, "0236 469 100", FACIEE, CTI);
         stud1.adaugaNota(CTI_1, 7);
@@ -68,15 +74,16 @@ public class CatalogTest {
         stud3.adaugaNota(IE_2, 6);
         stud3.adaugaNota(IE_3, 5);
         System.out.println(stud3.toString());
+
         // test toString Profesor
-        Profesor prof1 = new Profesor(40, "Florin", "Dabija", "502589338593", "Galati", "Galati", "Domneasca", 1, 800008, "	0236 314 044", FACIEE, CTI_1, 2500);
+        Profesor prof1 = new Profesor(40, "Florin", "Dabija", "502589338593", "Galati", "Galati", "Domneasca", 1, 800008, "0236 314 044", FACIEE, CTI_1, 2500);
         System.out.println(prof1.toString());
         Profesor prof2 = new Profesor(55, "Petre", "Balint", "502759275493", "Galati", "Galati", "Petru Groza", 2, 800423, "0236 464 654", FACIEE, IE_2, 2000);
         System.out.println(prof2.toString());
         Profesor prof3 = new Profesor(35, "Georgiana", "Nita", "385938593850", "Galati", "Galati", "Bravilor", 49, 800171, "0236 418 060", FACIEE, IS_3, 3000);
         System.out.println(prof3.toString());
 
-        //aici vedem daca s-au modificat nrStudenti si nrProfesori
-        System.out.println(FACIEE.toString());
+        //pentru a verifica daca s-a schimbat numarul de profesori & elevi dupa crearea lor 
+        FACIEE.afisareFacultate();
     }
 }

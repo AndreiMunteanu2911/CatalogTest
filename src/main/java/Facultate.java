@@ -8,35 +8,38 @@ public class Facultate {
     String email;
     int nrStudenti;
     int nrProfesori;
-    ArrayList< Specializare> specializari;
+    ArrayList < Specializare > specializari;
 
+    //constructor cu parametrii impliciti
     public Facultate() {
         nume = "NULL";
         adresa = new Adresa();
         email = "NULL";
         nrStudenti = 0;
         nrProfesori = 0;
-        specializari = new ArrayList< Specializare>();
+        specializari = new ArrayList < Specializare > ();
     }
 
-    public Facultate(String nume, Adresa adresa, String email, ArrayList<Specializare> specializari) {
+    //constructor cu parametrii expliciti, numarul de studenti si de profesori se incrementeaza de fiecare data cand
+    //un obiect de tipul Profesor/Student este creat.
+    public Facultate(String nume, Adresa adresa, String email, ArrayList < Specializare > specializari) {
         this.nume = nume;
         this.adresa = adresa;
         this.email = email;
-        this.nrStudenti=0;
-        this.nrProfesori=0;
+        this.nrStudenti = 0;
+        this.nrProfesori = 0;
         this.specializari = specializari;
     }
     public Facultate(String nume, Adresa adresa, String email) {
         this.nume = nume;
         this.adresa = adresa;
         this.email = email;
-        this.nrStudenti=0;
-        this.nrProfesori=0;
-        this.specializari = new ArrayList< Specializare>();
+        this.nrStudenti = 0;
+        this.nrProfesori = 0;
+        this.specializari = new ArrayList < Specializare > ();
     }
 
-    public Facultate(String nume, Adresa adresa, String email, int nrStudenti, int nrProfesori, ArrayList< Specializare> specializari) {
+    public Facultate(String nume, Adresa adresa, String email, int nrStudenti, int nrProfesori, ArrayList < Specializare > specializari) {
         this.nume = nume;
         this.adresa = adresa;
         this.email = email;
@@ -51,7 +54,7 @@ public class Facultate {
         this.email = email;
         this.nrStudenti = nrStudenti;
         this.nrProfesori = nrProfesori;
-        this.specializari = new ArrayList< Specializare>();
+        this.specializari = new ArrayList < Specializare > ();
     }
 
     public Facultate(Facultate obj) {
@@ -64,7 +67,6 @@ public class Facultate {
     }
 
     //getteri
-
 
     public String getNume() {
         return this.nume;
@@ -86,12 +88,11 @@ public class Facultate {
         return this.nrProfesori;
     }
 
-    public ArrayList<Specializare> getSpecializari() {
+    public ArrayList < Specializare > getSpecializari() {
         return this.specializari;
     }
 
     //setteri
-
 
     public void setNume(String nume) {
         this.nume = nume;
@@ -113,7 +114,7 @@ public class Facultate {
         this.nrProfesori = nrProfesori;
     }
 
-    public void setSpecializari(ArrayList<Specializare> specializari) {
+    public void setSpecializari(ArrayList < Specializare > specializari) {
         this.specializari = specializari;
     }
 
@@ -124,16 +125,16 @@ public class Facultate {
     }
 
     //Metode pentru a actualiza nrStudenti dupa fiecare instantiere
-    public void cresteNrStudenti(){
-         this.nrStudenti++;
+    public void cresteNrStudenti() {
+        this.nrStudenti++;
     }
 
     //Metode pentru a actualiza nrProfesori dupa fiecare instantiere
-    public void cresteNrProfesor(){
+    public void cresteNrProfesor() {
         this.nrProfesori++;
     }
 
-    //metoda toString()
+    //metoda toString() pentru afisarea facultatatii impreuna cu specialiarile
     @Override
     public String toString() {
         String ret = "";
@@ -142,5 +143,10 @@ public class Facultate {
             ret += specializari.get(i).toString();
         }
         return ret;
+    }
+
+    //metoda pentru afisarea facultatii fara specializari
+    public void afisareFacultate() {
+        System.out.println(nume + '\n' + adresa.toString() + "\ne-mail: " + email + "\nNumar de studenti: " + nrStudenti + "\nNumar de profesori: " + nrProfesori);
     }
 }
