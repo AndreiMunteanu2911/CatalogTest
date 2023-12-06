@@ -65,13 +65,13 @@ public class CatalogTest {
         System.out.println(prof3.toString());
 
         // test toString Student
-        Student stud1 = new Student(20, "Emilian", "Toma", "502759275493", "Galati", "Galati", "Alexandru Ioan Cuza", 52, 800216, "0236 469 100", FACIEE, CTI);
+        Student stud1 = new Student(20, "Emilian", "Toma", "502759275493", "Galati", "Tecuci", "Alexandru Ioan Cuza", 52, 800216, "0236 469 100", FACIEE, CTI);
         stud1.adaugaNota(CTI_1, 7);
         stud1.adaugaNota(CTI_2, 4);
         stud1.adaugaNota(CTI_3, 6);
         System.out.println(stud1.toString());
 
-        Student stud2 = new Student(24, "Eugen", "Andreescu", "502684903855", "Galati", "Galati", "General Ioan Dragalina", 1, 800290, "0800 896 622", FACIEE, IS);
+        Student stud2 = new Student(24, "Eugen", "Andreescu", "502684903855", "Galati", "Tecuci", "General Ioan Dragalina", 1, 800290, "0800 896 622", FACIEE, IS);
         stud2.adaugaNota(IS_1, 10);
         stud2.adaugaNota(IS_2, 8);
         stud2.adaugaNota(IS_3, 9);
@@ -84,7 +84,27 @@ public class CatalogTest {
         System.out.println(stud3.toString());
 
 
+
         //pentru a verifica daca s-a schimbat numarul de profesori & studenti dupa crearea lor
         FACIEE.afisareFacultate();
+        System.out.println("\n\n\n");
+        Catalog ctl = new Catalog();
+        ctl.adaugaStudent(stud1);
+        ctl.adaugaStudent(stud2);
+        ctl.adaugaStudent(stud3);
+        // test toString catalog
+        System.out.println(ctl.toString());
+        // test filtruNote
+        System.out.println("\n\n\n");
+        System.out.println(ctl.toStringParametru(ctl.filtruNote(ctl.studenti)));
+        // test filtruoras
+        System.out.println("\n\n\n");
+        System.out.println(ctl.toStringParametru(ctl.filtruOras("Tecuci",ctl.studenti)));
+        // test filtruSpecializari
+        System.out.println("\n\n\n");
+        System.out.println(ctl.toStringParametru(ctl.filtruSpecializare(IE, ctl.studenti)));
+        // test filtre multiple
+        System.out.println("\n\n\n");
+        System.out.println(ctl.toStringParametru(ctl.filtruOras("Tecuci",ctl.filtruNote(ctl.studenti))));
     }
 }
