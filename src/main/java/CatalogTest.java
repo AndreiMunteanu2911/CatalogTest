@@ -84,7 +84,6 @@ public class CatalogTest {
         System.out.println(stud3.toString());
 
 
-
         //pentru a verifica daca s-a schimbat numarul de profesori & studenti dupa crearea lor
         FACIEE.afisareFacultate();
     }
