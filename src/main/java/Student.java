@@ -2,10 +2,10 @@
  *
  * @author Tudor
  */
+import java.io.Serializable;
 import java.util.HashMap;
-import java.util.ArrayList;
 
-public class Student extends Persoana {
+public class Student extends Persoana implements Serializable   {
 
     static int CounterNrMatricol = 1; //se va incrementa la fiecare obiect nou/ constructor apelat si fiind static va fi retinut pt urm student
     int nrMatricol;
@@ -53,6 +53,10 @@ public class Student extends Persoana {
         this.specializare = specializare;
         this.note = new HashMap < > ();
         this.facultate.cresteNrStudenti();
+        this.note = new HashMap < > ();
+        for (int i=0;i<this.specializare.materii.size();i++) {
+            this.note.put(this.specializare.materii.get(i), -1);
+        }
     }
 
     //constructor cu toti parametrii 3 (nr matricol automat)

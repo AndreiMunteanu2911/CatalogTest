@@ -1,8 +1,11 @@
+
+import java.io.Serializable;
+
 /**
  *
  * @author Tudor
  */
-public class Persoana {
+public class Persoana implements Serializable{
 
     int varsta;
     String nume, prenume, CNP;

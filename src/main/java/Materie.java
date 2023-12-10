@@ -1,6 +1,9 @@
+
+import java.io.Serializable;
+
 // Munteanu Andrei
 
-public class Materie {
+public class Materie implements Serializable{
 
     String nume;
     int nrCredite;

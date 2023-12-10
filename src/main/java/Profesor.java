@@ -1,8 +1,7 @@
-/**
- *
- * @author Tudor
- */
-public class Profesor extends Persoana {
+
+import java.io.Serializable;
+
+public class Profesor extends Persoana implements Serializable{
 
     Facultate facultate;
     Materie materie;

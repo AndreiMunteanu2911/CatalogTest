@@ -1,5 +1,11 @@
 import java.util.ArrayList;
 import javax.swing.SwingUtilities;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
+import java.io.IOException;
 
 public class CatalogTest {
 
@@ -99,21 +105,20 @@ public class CatalogTest {
         System.out.println(ctl.toString());
         // test filtruNote
         System.out.println("\n\n\n");
-        System.out.println(ctl.toStringParametru(ctl.filtruStudent(ctl.studenti)));
+        System.out.println(ctl.toStringParametru(ctl.filtruNote(ctl.studenti)));
+        // test filtruoras
+        System.out.println("\n\n\n");
+        System.out.println(ctl.toStringParametru(ctl.filtruOras("Tecuci",ctl.studenti)));
+        // test filtruSpecializari
+        System.out.println("\n\n\n");
+        System.out.println(ctl.toStringParametru(ctl.filtruSpecializare("Inginerie electrica", ctl.studenti)));
+        // test filtre multiple
+        System.out.println("\n\n\n");
+        System.out.println(ctl.toStringParametru(ctl.filtruOras("Tecuci",ctl.filtruNote(ctl.studenti))));
         // test filtruFacultate
         System.out.println("\n\n\n");
         System.out.println("Filtru pe baza numelui facultatii: ");
         System.out.println(ctl.toStringParametru(ctl.filtruFacultate("Facultatea de Litere", ctl.studenti)));
-        // test filtruoras
-        System.out.println("\n\n\n");
-        System.out.println(ctl.toStringParametru(ctl.filtruAdresa("Tecuci",ctl.studenti)));
-        // test filtruSpecializari
-        System.out.println("\n\n\n");
-        System.out.println(ctl.toStringParametru(ctl.filtruSpecializare(IE, ctl.studenti)));
-        // test filtre multiple
-        System.out.println("\n\n\n");
-        System.out.println(ctl.toStringParametru(ctl.filtruAdresa("Tecuci",ctl.filtruStudent(ctl.studenti))));
-        
         // Test GUI
         // Creare catalog
         Catalog catalog = new Catalog();
@@ -187,12 +192,45 @@ public class CatalogTest {
         catalog.adaugaFacultate(FEFS);
         catalog.adaugaFacultate(FDSA);
         
+        Student stud4 = new Student(30, "Alexandru", "Ionescu", "502732424333", "Timis", "Timisoara", "9 Mai", 3, 300085, "0236 215 432", LITERE, LL);
+        stud1.adaugaNota(LL_1, 10);
+        stud1.adaugaNota(LL_2, 6);
+        stud1.adaugaNota(LL_3, 7);
+        Student stud5 = new Student(26, "Maria", "Stanciu", "502735364393", "Brasov", "Brasov", "Colinei", 7, 800216, "0236 233 543", FEFS, K);
+        stud1.adaugaNota(K_1, 6);
+        stud1.adaugaNota(K_2, 3);
+        stud1.adaugaNota(K_3, 7);
+        Student stud6 = new Student(20, "Vlad", "Aureliu", "502759325493", "Iasi", "Iasi", "Galata", 5, 800216, "0236 339 142", FDSA, SA);
+        stud1.adaugaNota(SA_1, 6);
+        stud1.adaugaNota(SA_2, 9);
+        stud1.adaugaNota(SA_3, 8);
+        
         
         
         catalog.adaugaStudent(stud1);
         catalog.adaugaStudent(stud2);
         catalog.adaugaStudent(stud3);
+        catalog.adaugaStudent(stud4);
+        catalog.adaugaStudent(stud5);
+        catalog.adaugaStudent(stud6);
         CatalogGUI test = new CatalogGUI(catalog);
         test.setVisible(true);
+        
+        
+        // Test Serializare
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Text.txt"))) {
+            oos.writeObject(catalog);
+            System.out.println("Instanta catalog a fost serializata");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Test deserializare
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Text.txt"))) {
+            Catalog deserializedObject = (Catalog) ois.readObject();
+            System.out.println("Instanta catalog a fost deserializata");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

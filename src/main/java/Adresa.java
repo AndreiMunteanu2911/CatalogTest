@@ -1,6 +1,9 @@
+
+import java.io.Serializable;
+
 // Bodea Marius-Theodor
 
-public class Adresa {
+public class Adresa implements Serializable{
 
     String judet;
     String oras;

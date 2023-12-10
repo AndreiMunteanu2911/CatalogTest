@@ -1,8 +1,9 @@
 // Bodea Marius-Theodor
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Facultate {
+public class Facultate implements Serializable{
     String nume;
     Adresa adresa;
     String email;

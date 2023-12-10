@@ -1,8 +1,9 @@
 // Munteanu Andrei
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Specializare {
+public class Specializare implements Serializable{
 
     String nume;
     ArrayList < Materie > materii;

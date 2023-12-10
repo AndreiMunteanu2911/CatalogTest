@@ -2,9 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.swing.table.*;
 import java.util.Objects;
+import javax.swing.DefaultComboBoxModel;
+import java.io.IOException;
+import java.util.Objects;
+import javax.swing.JTable;
 
 /**
  *
@@ -35,6 +41,9 @@ public class CatalogGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableStudenti = new javax.swing.JTable();
         jButtonAdaugaStudent = new javax.swing.JButton();
@@ -64,6 +73,31 @@ public class CatalogGUI extends javax.swing.JFrame {
         jComboBoxSpecializare = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAreaDetalii = new javax.swing.JTextArea();
+        jLabelMaterie1 = new javax.swing.JLabel();
+        jLabelMaterie2 = new javax.swing.JLabel();
+        jLabelMaterie3 = new javax.swing.JLabel();
+        jTextFieldMaterie1 = new javax.swing.JTextField();
+        jTextFieldMaterie2 = new javax.swing.JTextField();
+        jTextFieldMaterie3 = new javax.swing.JTextField();
+        jButtonSalveazaNotele = new javax.swing.JButton();
+        jCheckBoxNote = new javax.swing.JCheckBox();
+        jButtonAplicaFiltrele = new javax.swing.JButton();
+        jCheckBoxFiltruOras = new javax.swing.JCheckBox();
+        jCheckBoxFiltruFacultate = new javax.swing.JCheckBox();
+        jCheckBoxFiltruSpecializare = new javax.swing.JCheckBox();
+        jComboBoxFiltruFacultate = new javax.swing.JComboBox<>();
+        jComboBoxFiltruSpecializare = new javax.swing.JComboBox<>();
+        jComboBoxFiltruOras = new javax.swing.JComboBox<>();
+        jButtonCitire = new javax.swing.JButton();
+        jButtonScriere = new javax.swing.JButton();
+        jButtonStergere = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem2.setText("jMenuItem2");
+
+        jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -186,68 +220,207 @@ public class CatalogGUI extends javax.swing.JFrame {
         jTextAreaDetalii.setRows(5);
         jScrollPane2.setViewportView(jTextAreaDetalii);
 
+        jLabelMaterie1.setText("Nespecificat");
+
+        jLabelMaterie2.setText("Nespecificat");
+
+        jLabelMaterie3.setText("Nespecificat");
+
+        jTextFieldMaterie1.setText("       -");
+
+        jTextFieldMaterie2.setText("       -");
+
+        jTextFieldMaterie3.setText("       -");
+
+        jButtonSalveazaNotele.setText("Salveaza notele");
+        jButtonSalveazaNotele.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalveazaNoteleActionPerformed(evt);
+            }
+        });
+
+        jCheckBoxNote.setText("Arata doar studentii integralisti");
+
+        jButtonAplicaFiltrele.setText("Aplica filtrele");
+        jButtonAplicaFiltrele.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAplicaFiltreleActionPerformed(evt);
+            }
+        });
+
+        jCheckBoxFiltruOras.setText("Arata doar studentii cu resedinta in");
+        jCheckBoxFiltruOras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxFiltruOrasActionPerformed(evt);
+            }
+        });
+
+        jCheckBoxFiltruFacultate.setText("Arata doar studentii de la facultatea");
+        jCheckBoxFiltruFacultate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxFiltruFacultateActionPerformed(evt);
+            }
+        });
+
+        jCheckBoxFiltruSpecializare.setText("Arata doar studentii de la specializarea");
+        jCheckBoxFiltruSpecializare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxFiltruSpecializareActionPerformed(evt);
+            }
+        });
+
+        jComboBoxFiltruFacultate.setModel(new javax.swing.DefaultComboBoxModel<>(StringArrayFacultati));
+        jComboBoxFiltruFacultate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxFiltruFacultateActionPerformed(evt);
+            }
+        });
+
+        ArrayList<String> listaSpecializariTotal = new ArrayList<String>();
+        for (int i=0;i<this.catalog.facultati.size();i++){
+            for (int j=0;j<this.catalog.facultati.get(i).specializari.size();j++){
+                listaSpecializariTotal.add(this.catalog.facultati.get(i).specializari.get(j).nume);
+            }
+        }
+        String[] StringArraySpecializariTotal = listaSpecializariTotal.toArray(new String[0]);
+        jComboBoxFiltruSpecializare.setModel(new javax.swing.DefaultComboBoxModel<>(StringArraySpecializariTotal));
+
+        String[] StringArrayOrase = this.catalog.orase.toArray(new String[0]);
+        jComboBoxFiltruOras.setModel(new javax.swing.DefaultComboBoxModel<>(StringArrayOrase));
+        jComboBoxFiltruOras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxFiltruOrasActionPerformed(evt);
+            }
+        });
+
+        jButtonCitire.setText("Citeste date din fisier");
+        jButtonCitire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCitireActionPerformed(evt);
+            }
+        });
+
+        jButtonScriere.setText("Scrie date in fisier");
+        jButtonScriere.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonScriereActionPerformed(evt);
+            }
+        });
+
+        jButtonStergere.setText("Sterge Student");
+        jButtonStergere.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonStergereActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Adauga Student Generat Aleatoriu");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelMaterie1, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                                    .addComponent(jLabelMaterie2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelMaterie3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldMaterie2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldMaterie1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldMaterie3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(26, 26, 26))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonScriere, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(68, 68, 68)
+                                    .addComponent(jButtonSalveazaNotele))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(50, 50, 50)
+                                    .addComponent(jButtonCitire))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabelNume, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabelVarsta, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabelCNP, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabelOras, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabelStrada, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabelPrenume, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabelJudet, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(51, 51, 51)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jTextFieldPrenume, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextFieldNume, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextFieldVarsta, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextFieldCNP, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jTextFieldStrada, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(7, 7, 7)
-                                            .addComponent(jTextFieldOras, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jTextFieldJudet, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelNume, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelVarsta, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelCNP, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelOras, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelPrenume, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelJudet, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelStrada, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jLabelTelefon, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabelCodPostal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabelFacultate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextFieldCodPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jComboBoxFacultate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabelSpecializare, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jComboBoxSpecializare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldNr, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))
+                                    .addComponent(jLabelSpecializare, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jTextFieldTelefon, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldJudet, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldCNP, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldVarsta, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldPrenume, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldNume, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldOras, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldCodPostal, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBoxSpecializare, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jComboBoxFacultate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jTextFieldStrada, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabelNr, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTextFieldNr, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(76, 76, 76))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(194, 194, 194)
+                                        .addComponent(jButton1))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(236, 236, 236)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jButtonAdaugaStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jButtonStergere, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(jButtonAdaugaStudent)
-                        .addContainerGap(49, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(258, 258, 258)
+                                .addComponent(jButtonAplicaFiltrele, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCheckBoxFiltruSpecializare, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCheckBoxFiltruFacultate)
+                                    .addComponent(jCheckBoxFiltruOras)
+                                    .addComponent(jCheckBoxNote))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBoxFiltruFacultate, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBoxFiltruSpecializare, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBoxFiltruOras, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 73, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,11 +447,11 @@ public class CatalogGUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelJudet)
                             .addComponent(jTextFieldJudet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelOras)
-                            .addComponent(jTextFieldOras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jTextFieldOras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelOras))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelTelefon)
                             .addComponent(jTextFieldTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -298,17 +471,54 @@ public class CatalogGUI extends javax.swing.JFrame {
                             .addComponent(jLabelFacultate))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelSpecializare)
-                            .addComponent(jComboBoxSpecializare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonAdaugaStudent))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jComboBoxSpecializare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelSpecializare))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonAdaugaStudent)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonStergere)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addComponent(jCheckBoxNote)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBoxFiltruOras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckBoxFiltruOras))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCheckBoxFiltruFacultate)
+                            .addComponent(jComboBoxFiltruFacultate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCheckBoxFiltruSpecializare)
+                            .addComponent(jComboBoxFiltruSpecializare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonAplicaFiltrele))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabelMaterie1)
+                                    .addComponent(jTextFieldMaterie1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabelMaterie2)
+                                    .addComponent(jTextFieldMaterie2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabelMaterie3)
+                                    .addComponent(jTextFieldMaterie3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonSalveazaNotele)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonScriere)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonCitire)))))
                 .addContainerGap())
         );
 
@@ -339,6 +549,9 @@ public class CatalogGUI extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTableStudenti.getModel();
 
         model.addRow(row);
+        
+        DefaultComboBoxModel<String> model2 = new DefaultComboBoxModel<>(this.catalog.orase.toArray(new String[0]));
+        jComboBoxFiltruOras.setModel(model2);
         
     }//GEN-LAST:event_jButtonAdaugaStudentActionPerformed
 
@@ -390,9 +603,139 @@ public class CatalogGUI extends javax.swing.JFrame {
             if (this.catalog.studenti.get(i).nrMatricol==nrMatricolDeCautat){
                 
                 this.jTextAreaDetalii.setText(this.catalog.studenti.get(i).toStringfaranote());
+                jLabelMaterie1.setText(this.catalog.studenti.get(i).specializare.materii.get(0).nume);
+                jLabelMaterie2.setText(this.catalog.studenti.get(i).specializare.materii.get(1).nume);
+                jLabelMaterie3.setText(this.catalog.studenti.get(i).specializare.materii.get(2).nume);
+                jTextFieldMaterie1.setText(Integer.toString(this.catalog.studenti.get(i).note.get(this.catalog.studenti.get(i).specializare.materii.get(0))));
+                jTextFieldMaterie2.setText(Integer.toString(this.catalog.studenti.get(i).note.get(this.catalog.studenti.get(i).specializare.materii.get(1))));
+                jTextFieldMaterie3.setText(Integer.toString(this.catalog.studenti.get(i).note.get(this.catalog.studenti.get(i).specializare.materii.get(2))));
             }
         }
     }//GEN-LAST:event_jTableStudentiMouseClicked
+
+    private void jButtonSalveazaNoteleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalveazaNoteleActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)jTableStudenti.getModel();
+        int column = 0;
+        int row = jTableStudenti.getSelectedRow();
+        int nrMatricolDeCautat = Integer.parseInt(model.getValueAt(row, 0).toString());
+        for (int i=0;i<this.catalog.studenti.size();i++){
+            if (this.catalog.studenti.get(i).nrMatricol==nrMatricolDeCautat){
+                
+                this.catalog.studenti.get(i).note.put(this.catalog.studenti.get(i).specializare.materii.get(0), Integer.parseInt(jTextFieldMaterie1.getText()));
+                this.catalog.studenti.get(i).note.put(this.catalog.studenti.get(i).specializare.materii.get(1), Integer.parseInt(jTextFieldMaterie2.getText()));
+                this.catalog.studenti.get(i).note.put(this.catalog.studenti.get(i).specializare.materii.get(2), Integer.parseInt(jTextFieldMaterie3.getText()));
+            }
+        }
+    }//GEN-LAST:event_jButtonSalveazaNoteleActionPerformed
+
+    private void jButtonAplicaFiltreleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAplicaFiltreleActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Student> studentiFiltrati = this.catalog.studenti;
+        if (jCheckBoxNote.isSelected()){
+            studentiFiltrati=this.catalog.filtruNote(studentiFiltrati);
+        }
+        
+        if (jCheckBoxFiltruOras.isSelected()){
+            studentiFiltrati=this.catalog.filtruOras(jComboBoxFiltruOras.getSelectedItem().toString(),studentiFiltrati);
+        }
+        
+        if (jCheckBoxFiltruSpecializare.isSelected()){
+            studentiFiltrati=this.catalog.filtruSpecializare(jComboBoxFiltruSpecializare.getSelectedItem().toString(),studentiFiltrati);
+        }
+        
+        if (jCheckBoxFiltruFacultate.isSelected()){
+            studentiFiltrati=this.catalog.filtruFacultate(jComboBoxFiltruFacultate.getSelectedItem().toString(),studentiFiltrati);
+        }
+        // terminat filtrarea, umplem tabelul
+        Student stud= new Student();
+        DefaultTableModel model = (DefaultTableModel) jTableStudenti.getModel();
+        model.setRowCount(0);
+        for (int i=0;i<studentiFiltrati.size();i++){
+            stud = studentiFiltrati.get(i);
+            Object[] row = { stud.nrMatricol, stud.nume, stud.prenume , stud.facultate.nume };
+            model.addRow(row);
+        }
+    }//GEN-LAST:event_jButtonAplicaFiltreleActionPerformed
+
+    private void jCheckBoxFiltruOrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxFiltruOrasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxFiltruOrasActionPerformed
+
+    private void jCheckBoxFiltruFacultateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxFiltruFacultateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxFiltruFacultateActionPerformed
+
+    private void jCheckBoxFiltruSpecializareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxFiltruSpecializareActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxFiltruSpecializareActionPerformed
+
+    private void jComboBoxFiltruFacultateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxFiltruFacultateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxFiltruFacultateActionPerformed
+
+    private void jComboBoxFiltruOrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxFiltruOrasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxFiltruOrasActionPerformed
+
+    private void jButtonCitireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCitireActionPerformed
+        // TODO add your handling code here:
+        try{
+        this.catalog=this.catalog.CitesteFisier();
+        } catch (Exception e){
+            System.out.println("Eroare citire");
+        }
+        DefaultTableModel model = (DefaultTableModel) jTableStudenti.getModel();
+        Student stud= new Student();
+        model.setRowCount(0);
+        for (int i=0;i<this.catalog.studenti.size();i++){
+            stud = this.catalog.studenti.get(i);
+            Object[] row = { stud.nrMatricol, stud.nume, stud.prenume , stud.facultate.nume };
+            model.addRow(row);
+        }
+    }//GEN-LAST:event_jButtonCitireActionPerformed
+
+    private void jButtonScriereActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonScriereActionPerformed
+        // TODO add your handling code here:
+        try{
+        this.catalog.ScrieFisier(this.catalog);
+        } catch (Exception e){
+            System.out.println("Eroare scriere");
+        }
+    }//GEN-LAST:event_jButtonScriereActionPerformed
+
+    private void jButtonStergereActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStergereActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)jTableStudenti.getModel();
+        int column = 0;
+        if (Objects.isNull(jTableStudenti.getSelectedRow())){
+            return;
+        }
+        if (jTableStudenti.getSelectedRow()==-1){
+            return;
+        }
+        int row = jTableStudenti.getSelectedRow();
+        int nrMatricolDeCautat = Integer.parseInt(model.getValueAt(row, 0).toString());
+        for (int i=0;i<this.catalog.studenti.size();i++){
+            if (this.catalog.studenti.get(i).nrMatricol==nrMatricolDeCautat){
+                
+                this.catalog.studenti.remove(this.catalog.studenti.get(i));
+            }
+        }            
+        model.removeRow(jTableStudenti.getSelectedRow());
+    }//GEN-LAST:event_jButtonStergereActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Student stud=this.catalog.GenereazaStudentAleatoriu();
+        Object[] row = { stud.nrMatricol, stud.nume, stud.prenume , stud.facultate.nume };
+
+        DefaultTableModel model = (DefaultTableModel) jTableStudenti.getModel();
+
+        model.addRow(row);
+        DefaultComboBoxModel<String> model2 = new DefaultComboBoxModel<>(this.catalog.orase.toArray(new String[0]));
+        jComboBoxFiltruOras.setModel(model2);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -430,13 +773,29 @@ public class CatalogGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAdaugaStudent;
+    private javax.swing.JButton jButtonAplicaFiltrele;
+    private javax.swing.JButton jButtonCitire;
+    private javax.swing.JButton jButtonSalveazaNotele;
+    private javax.swing.JButton jButtonScriere;
+    private javax.swing.JButton jButtonStergere;
+    private javax.swing.JCheckBox jCheckBoxFiltruFacultate;
+    private javax.swing.JCheckBox jCheckBoxFiltruOras;
+    private javax.swing.JCheckBox jCheckBoxFiltruSpecializare;
+    private javax.swing.JCheckBox jCheckBoxNote;
     private javax.swing.JComboBox<String> jComboBoxFacultate;
+    private javax.swing.JComboBox<String> jComboBoxFiltruFacultate;
+    private javax.swing.JComboBox<String> jComboBoxFiltruOras;
+    private javax.swing.JComboBox<String> jComboBoxFiltruSpecializare;
     private javax.swing.JComboBox<String> jComboBoxSpecializare;
     private javax.swing.JLabel jLabelCNP;
     private javax.swing.JLabel jLabelCodPostal;
     private javax.swing.JLabel jLabelFacultate;
     private javax.swing.JLabel jLabelJudet;
+    private javax.swing.JLabel jLabelMaterie1;
+    private javax.swing.JLabel jLabelMaterie2;
+    private javax.swing.JLabel jLabelMaterie3;
     private javax.swing.JLabel jLabelNr;
     private javax.swing.JLabel jLabelNume;
     private javax.swing.JLabel jLabelOras;
@@ -445,6 +804,9 @@ public class CatalogGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelStrada;
     private javax.swing.JLabel jLabelTelefon;
     private javax.swing.JLabel jLabelVarsta;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableStudenti;
@@ -452,6 +814,9 @@ public class CatalogGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldCNP;
     private javax.swing.JTextField jTextFieldCodPostal;
     private javax.swing.JTextField jTextFieldJudet;
+    private javax.swing.JTextField jTextFieldMaterie1;
+    private javax.swing.JTextField jTextFieldMaterie2;
+    private javax.swing.JTextField jTextFieldMaterie3;
     private javax.swing.JTextField jTextFieldNr;
     private javax.swing.JTextField jTextFieldNume;
     private javax.swing.JTextField jTextFieldOras;
