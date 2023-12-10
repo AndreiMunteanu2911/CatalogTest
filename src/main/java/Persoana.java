@@ -87,6 +87,6 @@ public class Persoana {
     //metoda toString()
     @Override
     public String toString() {
-        return "Nume: " + this.nume + " Prenume: " + this.prenume + " CNP: " + this.CNP + " Varsta: " + this.varsta + "\n" + this.adresa.toString();
+        return "Nume: " + this.nume + "\nPrenume: " + this.prenume + "\nCNP: " + this.CNP + "\nVarsta: " + this.varsta + " ani\n" + this.adresa.toString();
     }
 }

@@ -144,12 +144,12 @@ public class Student extends Persoana {
     //metoda toString dar fara afisarea notelor
     public String toStringfaranote() {
         // return super.toString()+" "+"NrMatricol: "+this.nrMatricol+" "+facultate.toString()+"\n "+specializare.toString()+this.toStringNote();
-        return "Student\n" + super.toString() + "\n" + "NrMatricol: " + this.nrMatricol ;
+        return super.toString() + "\n" + "Nr. matricol: " + this.nrMatricol +"\n"+this.facultate.nume+"\nSpecializarea: "+this.specializare.nume;
     }
     //metoda toString()
     @Override
     public String toString() {
         // return super.toString()+" "+"NrMatricol: "+this.nrMatricol+" "+facultate.toString()+"\n "+specializare.toString()+this.toStringNote();
-        return "Student\n" + super.toString() + "\n" + "NrMatricol: " + this.nrMatricol + "\n" + this.toStringNote();
+        return "Student\n" + super.toString() + "\n" + "NrMatricol: " + this.nrMatricol + "\n" + this.toStringNote()+"\n";
     }
 }
