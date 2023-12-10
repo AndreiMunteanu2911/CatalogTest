@@ -44,10 +44,10 @@ public class Specializare {
     //metoda toString()
     @Override
     public String toString() {
-        StringBuffer ret = new StringBuffer("Specializarea: " + nume + "\n");
+        StringBuilder ret = new StringBuilder("Specializarea: " + nume + "\n");
         ret.append("Nr de locuri: ").append(nrLocuri).append("\nMaterii: ").append("\n\n");
         for (int i = 0; i < materii.size(); i++) {
-            ret.append("o ").append(materii.get(i).toString()).append("\n");
+            ret.append("o ").append(materii.get(i)).append("\n");
         }
         return ret.toString();
     }

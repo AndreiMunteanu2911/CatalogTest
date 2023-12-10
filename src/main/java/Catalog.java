@@ -19,8 +19,8 @@ public class Catalog {
         this.orase.add(s.adresa.oras);
     }
 
-
-    public ArrayList<Student> filtruNote(ArrayList<Student> initial) {
+    //filtreaza studentii dupa nume
+    public ArrayList<Student> filtruStudent(ArrayList<Student> initial) {
         ArrayList<Student> filtrat = new ArrayList<Student>();
         for (int i = 0; i < initial.size(); i++) {
             int ok = 1;
@@ -37,7 +37,7 @@ public class Catalog {
     }
 
 
-    public ArrayList<Student> filtruOras(String oras, ArrayList<Student> initial) {
+    public ArrayList<Student> filtruAdresa(String oras, ArrayList<Student> initial) {
         ArrayList<Student> filtrat = new ArrayList<Student>();
         for (int i = 0; i < initial.size(); i++) {
             if (initial.get(i).adresa.oras == oras) {
@@ -56,20 +56,20 @@ public class Catalog {
         }
         return filtrat;
     }
-
+    //niste toString-uri
     public String toStringParametru(ArrayList<Student> studenti) {
-        String ret = new String();
+        StringBuilder ret = new StringBuilder();
         for (int i = 0; i < studenti.size(); i++) {
-            ret = ret + studenti.get(i).toString();
+            ret.append(studenti.get(i));
         }
-        return ret;
+        return ret.toString();
     }
 
     public String toString() {
-        String ret = new String();
+        StringBuilder ret = new StringBuilder();
         for (int i = 0; i < this.studenti.size(); i++) {
-            ret = ret + this.studenti.get(i).toString();
+            ret.append(this.studenti.get(i));
         }
-        return ret;
+        return ret.toString();
     }
 }

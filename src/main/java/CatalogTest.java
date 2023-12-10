@@ -96,16 +96,16 @@ public class CatalogTest {
         System.out.println(ctl.toString());
         // test filtruNote
         System.out.println("\n\n\n");
-        System.out.println(ctl.toStringParametru(ctl.filtruNote(ctl.studenti)));
+        System.out.println(ctl.toStringParametru(ctl.filtruStudent(ctl.studenti)));
         // test filtruoras
         System.out.println("\n\n\n");
-        System.out.println(ctl.toStringParametru(ctl.filtruOras("Tecuci",ctl.studenti)));
+        System.out.println(ctl.toStringParametru(ctl.filtruAdresa("Tecuci",ctl.studenti)));
         // test filtruSpecializari
         System.out.println("\n\n\n");
         System.out.println(ctl.toStringParametru(ctl.filtruSpecializare(IE, ctl.studenti)));
         // test filtre multiple
         System.out.println("\n\n\n");
-        System.out.println(ctl.toStringParametru(ctl.filtruOras("Tecuci",ctl.filtruNote(ctl.studenti))));
+        System.out.println(ctl.toStringParametru(ctl.filtruAdresa("Tecuci",ctl.filtruStudent(ctl.studenti))));
         System.out.println("\n\n\n");
     }
 }

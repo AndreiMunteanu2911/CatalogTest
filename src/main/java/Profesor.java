@@ -1,3 +1,7 @@
+/**
+ *
+ * @author Tudor
+ */
 public class Profesor extends Persoana {
 
     Facultate facultate;
