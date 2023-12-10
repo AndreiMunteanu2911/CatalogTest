@@ -66,21 +66,21 @@ public class CatalogTest {
 
         // test toString Student
         Student stud1 = new Student(20, "Emilian", "Toma", "502759275493", "Galati", "Tecuci", "Alexandru Ioan Cuza", 52, 800216, "0236 469 100", FACIEE, CTI);
-        // stud1.adaugaNota(CTI_1, 7);
-        // stud1.adaugaNota(CTI_2, 4);
-        // stud1.adaugaNota(CTI_3, 6);
+        stud1.adaugaNota(CTI_1, 7);
+        stud1.adaugaNota(CTI_2, 4);
+        stud1.adaugaNota(CTI_3, 6);
         // System.out.println(stud1.toString());
 
         Student stud2 = new Student(24, "Eugen", "Andreescu", "502684903855", "Galati", "Tecuci", "General Ioan Dragalina", 1, 800290, "0800 896 622", FACIEE, IS);
-        // stud2.adaugaNota(IS_1, 10);
-        // stud2.adaugaNota(IS_2, 8);
-        // stud2.adaugaNota(IS_3, 9);
+        stud2.adaugaNota(IS_1, 10);
+        stud2.adaugaNota(IS_2, 8);
+        stud2.adaugaNota(IS_3, 9);
         // System.out.println(stud2.toString());
 
         Student stud3 = new Student(19, "Codrut", "Mihailescu", "5023359583", "Galati", "Galati", "Gheorghe Asachi", 2, 800487, "0336 114 796", FACIEE, IE);
-        // stud3.adaugaNota(IE_1, 3);
-        // stud3.adaugaNota(IE_2, 6);
-        // stud3.adaugaNota(IE_3, 5);
+        stud3.adaugaNota(IE_1, 3);
+        stud3.adaugaNota(IE_2, 6);
+        stud3.adaugaNota(IE_3, 5);
         // System.out.println(stud3.toString());
 
 
@@ -91,24 +91,24 @@ public class CatalogTest {
         
         
         // Cream catalog
-        // Catalog ctl = new Catalog();
-        // ctl.adaugaStudent(stud1);
-        // ctl.adaugaStudent(stud2);
-        // ctl.adaugaStudent(stud3);
+        Catalog ctl = new Catalog();
+        ctl.adaugaStudent(stud1);
+        ctl.adaugaStudent(stud2);
+        ctl.adaugaStudent(stud3);
         // test toString catalog
-        // System.out.println(ctl.toString());
+        System.out.println(ctl.toString());
         // test filtruNote
-        // System.out.println("\n\n\n");
-        // System.out.println(ctl.toStringParametru(ctl.filtruNote(ctl.studenti)));
+        System.out.println("\n\n\n");
+        System.out.println(ctl.toStringParametru(ctl.filtruNote(ctl.studenti)));
         // test filtruoras
-        // System.out.println("\n\n\n");
-        // System.out.println(ctl.toStringParametru(ctl.filtruOras("Tecuci",ctl.studenti)));
+        System.out.println("\n\n\n");
+        System.out.println(ctl.toStringParametru(ctl.filtruOras("Tecuci",ctl.studenti)));
         // test filtruSpecializari
-        // System.out.println("\n\n\n");
-        // System.out.println(ctl.toStringParametru(ctl.filtruSpecializare(IE, ctl.studenti)));
+        System.out.println("\n\n\n");
+        System.out.println(ctl.toStringParametru(ctl.filtruSpecializare(IE, ctl.studenti)));
         // test filtre multiple
-        // System.out.println("\n\n\n");
-        // System.out.println(ctl.toStringParametru(ctl.filtruOras("Tecuci",ctl.filtruNote(ctl.studenti))));
+        System.out.println("\n\n\n");
+        System.out.println(ctl.toStringParametru(ctl.filtruOras("Tecuci",ctl.filtruNote(ctl.studenti))));
         
         // Test GUI
         // Creare catalog
@@ -122,15 +122,19 @@ public class CatalogTest {
         Specializare LL = new Specializare("Limba si Literatura", 150);
         Materie LL_1 = new Materie ("Literatura universala", 5);
         Materie LL_2 = new Materie ("Comunicare orala si scrisa", 4);
+        Materie LL_3 = new Materie ("Literatura romana", 5);
         LL.adaugaMaterie(LL_1);
         LL.adaugaMaterie(LL_2);
+        LL.adaugaMaterie(LL_3);
         
         // Cream specializarea Stiinte ale Comunicarii
         Specializare SC = new Specializare("Stiinte ale comunicarii", 100);
         Materie SC_1 = new Materie ("Istoria scrisului, a cartilor si a bibliotecii", 5);
         Materie SC_2 = new Materie ("Bazele biblioteconomiei", 3);
+        Materie SC_3 = new Materie ("Psihologia educatiei", 2);
         SC.adaugaMaterie(SC_1);
         SC.adaugaMaterie(SC_2);
+        SC.adaugaMaterie(SC_3);
         
         LITERE.adaugaSpecializare(LL);
         LITERE.adaugaSpecializare(SC);
@@ -142,19 +146,35 @@ public class CatalogTest {
         
         Specializare K = new Specializare("Kinetoterapie", 100);
         Materie K_1 = new Materie ("Kinetoterapie și motricitate speciala", 5);
+        Materie K_2 = new Materie ("Gimnastica de baza", 3);
+        Materie K_3 = new Materie ("Anatomie functionala", 4);
         Specializare EdF = new Specializare("Educatie Fizica si Sport", 150);
         Materie EdF_1 = new Materie ("Educație fizica și sportiva", 5);
+        Materie EdF_2 = new Materie ("Fundamentele stiintifice ale jocurilor sportive", 4);
+        Materie EdF_3 = new Materie ("Anatomie", 5);
         K.adaugaMaterie(K_1);
+        K.adaugaMaterie(K_2);
+        K.adaugaMaterie(K_3);
         EdF.adaugaMaterie(EdF_1);
+        EdF.adaugaMaterie(EdF_2);
+        EdF.adaugaMaterie(EdF_3);
         FEFS.adaugaSpecializare(K);
         FEFS.adaugaSpecializare(EdF);
         
         Specializare DR = new Specializare("Drept", 200);
         Materie DR_1 = new Materie ("Teoria generala a statului", 5);
+        Materie DR_2 = new Materie ("Drept civil. Teorie generala", 4);
+        Materie DR_3 = new Materie ("Teoria constructiei UE", 2);
         Specializare SA = new Specializare("Stiinte Administrative", 100);
         Materie SA_1 = new Materie ("Comunicare in administratia publica", 4);
+        Materie SA_2 = new Materie ("Logica", 2);
+        Materie SA_3 = new Materie ("Stiinta administratiei", 4);
         DR.adaugaMaterie(DR_1);
-        SA.adaugaMaterie(EdF_1);
+        SA.adaugaMaterie(SA_1);
+        DR.adaugaMaterie(DR_2);
+        SA.adaugaMaterie(SA_2);
+        DR.adaugaMaterie(DR_3);
+        SA.adaugaMaterie(SA_3);
         FDSA.adaugaSpecializare(DR);
         FDSA.adaugaSpecializare(SA);
         

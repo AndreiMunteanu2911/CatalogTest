@@ -137,12 +137,12 @@ public class Facultate {
     //metoda toString() pentru afisarea facultatatii impreuna cu specialiarile
     @Override
     public String toString() {
-        StringBuffer ret = new StringBuffer("");
-        ret.append(nume).append('\n').append(adresa.toString()).append("\ne-mail: ").append(email).append("\nNumar de studenti: ").append(nrStudenti).append("\nNumar de profesori: ").append(nrProfesori).append("\nSpecializari: \n\n");
+        String ret = "";
+        ret += nume + '\n' + adresa.toString() + "\ne-mail: " + email + "\nNumar de studenti: " + nrStudenti + "\nNumar de profesori: " + nrProfesori + "\nSpecializari: \n\n";
         for (int i = 0; i < specializari.size(); i++) {
-            ret.append(specializari.get(i).toString());
+            ret += specializari.get(i).toString();
         }
-        return ret.toString();
+        return ret;
     }
 
     //metoda pentru afisarea facultatii fara specializari
