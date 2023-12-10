@@ -107,5 +107,10 @@ public class CatalogTest {
         System.out.println("\n\n\n");
         System.out.println(ctl.toStringParametru(ctl.filtruAdresa("Tecuci",ctl.filtruStudent(ctl.studenti))));
         System.out.println("\n\n\n");
+
+        // test filtruFacultate
+        System.out.println("\n\n\n");
+        System.out.println("Filtru pe baza numelui facultatii: ");
+        System.out.println(ctl.toStringParametru(ctl.filtruFacultate("Facultatea de Litere", ctl.studenti)));
     }
 }

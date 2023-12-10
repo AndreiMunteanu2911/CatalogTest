@@ -8,10 +8,16 @@ public class Catalog {
     ArrayList<Student> studenti;
     HashSet<String> orase;
     HashSet<Specializare> specializari;
+    ArrayList <Facultate> facultati;
 
     public Catalog() {
         this.studenti = new ArrayList<Student>();
         this.orase = new HashSet<String>();
+        this.facultati = new ArrayList<Facultate>();
+    }
+
+    public void adaugaFacultate(Facultate f) {
+        this.facultati.add(f);
     }
 
     public void adaugaStudent(Student s) {
@@ -51,6 +57,16 @@ public class Catalog {
         ArrayList<Student> filtrat = new ArrayList<Student>();
         for (int i = 0; i < initial.size(); i++) {
             if (initial.get(i).specializare.nume == spec.nume) {
+                filtrat.add(initial.get(i));
+            }
+        }
+        return filtrat;
+    }
+
+    public ArrayList<Student> filtruFacultate(String facultate, ArrayList<Student> initial) {
+        ArrayList<Student> filtrat = new ArrayList<Student>();
+        for(int i = 0; i < initial.size(); i++) {
+            if(initial.get(i).facultate.nume == facultate) {
                 filtrat.add(initial.get(i));
             }
         }
