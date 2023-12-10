@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Objects;
 
 public class Catalog {
     ArrayList<Student> studenti;
@@ -66,12 +67,13 @@ public class Catalog {
     public ArrayList<Student> filtruFacultate(String facultate, ArrayList<Student> initial) {
         ArrayList<Student> filtrat = new ArrayList<Student>();
         for(int i = 0; i < initial.size(); i++) {
-            if(initial.get(i).facultate.nume == facultate) {
+            if(Objects.equals(initial.get(i).facultate.nume, facultate)) {
                 filtrat.add(initial.get(i));
             }
         }
         return filtrat;
     }
+
     //niste toString-uri
     public String toStringParametru(ArrayList<Student> studenti) {
         StringBuilder ret = new StringBuilder();
