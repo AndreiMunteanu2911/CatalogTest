@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import javax.swing.*;
+import javax.swing.SwingUtilities;
 
 public class CatalogTest {
 
@@ -55,39 +55,42 @@ public class CatalogTest {
         FACIEE.adaugaSpecializare(IE);
 
         // test toString Facultate (afiseaza toate datele facultatii, inclusiv specializarile acesteia)
-        System.out.println(FACIEE.toString());
+        // System.out.println(FACIEE.toString());
         // test toString Profesor
-        Profesor prof1 = new Profesor(40, "Florin", "Dabija", "502589338593", "Galati", "Galati", "Domneasca", 1, 800008, "0236 314 044", FACIEE, CTI_1, 2500);
-        System.out.println(prof1.toString());
-        Profesor prof2 = new Profesor(55, "Petre", "Balint", "502759275493", "Galati", "Galati", "Petru Groza", 2, 800423, "0236 464 654", FACIEE, IE_2, 2000);
-        System.out.println(prof2.toString());
-        Profesor prof3 = new Profesor(35, "Georgiana", "Nita", "385938593850", "Galati", "Galati", "Bravilor", 49, 800171, "0236 418 060", FACIEE, IS_3, 3000);
-        System.out.println(prof3.toString());
+        // Profesor prof1 = new Profesor(40, "Florin", "Dabija", "502589338593", "Galati", "Galati", "Domneasca", 1, 800008, "0236 314 044", FACIEE, CTI_1, 2500);
+        // System.out.println(prof1.toString());
+        // Profesor prof2 = new Profesor(55, "Petre", "Balint", "502759275493", "Galati", "Galati", "Petru Groza", 2, 800423, "0236 464 654", FACIEE, IE_2, 2000);
+        // System.out.println(prof2.toString());
+        // Profesor prof3 = new Profesor(35, "Georgiana", "Nita", "385938593850", "Galati", "Galati", "Bravilor", 49, 800171, "0236 418 060", FACIEE, IS_3, 3000);
+        // System.out.println(prof3.toString());
 
         // test toString Student
         Student stud1 = new Student(20, "Emilian", "Toma", "502759275493", "Galati", "Tecuci", "Alexandru Ioan Cuza", 52, 800216, "0236 469 100", FACIEE, CTI);
         stud1.adaugaNota(CTI_1, 7);
         stud1.adaugaNota(CTI_2, 4);
         stud1.adaugaNota(CTI_3, 6);
-        System.out.println(stud1.toString());
+        // System.out.println(stud1.toString());
 
         Student stud2 = new Student(24, "Eugen", "Andreescu", "502684903855", "Galati", "Tecuci", "General Ioan Dragalina", 1, 800290, "0800 896 622", FACIEE, IS);
         stud2.adaugaNota(IS_1, 10);
         stud2.adaugaNota(IS_2, 8);
         stud2.adaugaNota(IS_3, 9);
-        System.out.println(stud2.toString());
+        // System.out.println(stud2.toString());
 
         Student stud3 = new Student(19, "Codrut", "Mihailescu", "5023359583", "Galati", "Galati", "Gheorghe Asachi", 2, 800487, "0336 114 796", FACIEE, IE);
         stud3.adaugaNota(IE_1, 3);
         stud3.adaugaNota(IE_2, 6);
         stud3.adaugaNota(IE_3, 5);
-        System.out.println(stud3.toString());
+        // System.out.println(stud3.toString());
 
 
 
         //pentru a verifica daca s-a schimbat numarul de profesori & studenti dupa crearea lor
-        FACIEE.afisareFacultate();
-        System.out.println("\n\n\n");
+        //FACIEE.afisareFacultate();
+        // System.out.println("\n\n\n");
+        
+        
+        // Cream catalog
         Catalog ctl = new Catalog();
         ctl.adaugaStudent(stud1);
         ctl.adaugaStudent(stud2);
@@ -97,6 +100,10 @@ public class CatalogTest {
         // test filtruNote
         System.out.println("\n\n\n");
         System.out.println(ctl.toStringParametru(ctl.filtruStudent(ctl.studenti)));
+        // test filtruFacultate
+        System.out.println("\n\n\n");
+        System.out.println("Filtru pe baza numelui facultatii: ");
+        System.out.println(ctl.toStringParametru(ctl.filtruFacultate("Facultatea de Litere", ctl.studenti)));
         // test filtruoras
         System.out.println("\n\n\n");
         System.out.println(ctl.toStringParametru(ctl.filtruAdresa("Tecuci",ctl.studenti)));
@@ -106,11 +113,86 @@ public class CatalogTest {
         // test filtre multiple
         System.out.println("\n\n\n");
         System.out.println(ctl.toStringParametru(ctl.filtruAdresa("Tecuci",ctl.filtruStudent(ctl.studenti))));
-        System.out.println("\n\n\n");
-
-        // test filtruFacultate
-        System.out.println("\n\n\n");
-        System.out.println("Filtru pe baza numelui facultatii: \n");
-        System.out.println(ctl.toStringParametru(ctl.filtruFacultate("Facultatea de Automatică, Calculatoare, Inginerie Electrică si Electronică", ctl.studenti)));
+        
+        // Test GUI
+        // Creare catalog
+        Catalog catalog = new Catalog();
+        
+        // Creare facultatea de litere
+        Adresa adrLitere= new Adresa("Galati", "Galati", "Str. Domneasca", 11, 800201, "0336 130 200");
+        Facultate LITERE = new Facultate("Facultatea de Litere",adrLitere , "secretariat.fl @ugal.ro");
+        
+        // Cream specializarea Limba si Literatura
+        Specializare LL = new Specializare("Limba si Literatura", 150);
+        Materie LL_1 = new Materie ("Literatura universala", 5);
+        Materie LL_2 = new Materie ("Comunicare orala si scrisa", 4);
+        Materie LL_3 = new Materie ("Literatura romana", 5);
+        LL.adaugaMaterie(LL_1);
+        LL.adaugaMaterie(LL_2);
+        LL.adaugaMaterie(LL_3);
+        
+        // Cream specializarea Stiinte ale Comunicarii
+        Specializare SC = new Specializare("Stiinte ale comunicarii", 100);
+        Materie SC_1 = new Materie ("Istoria scrisului, a cartilor si a bibliotecii", 5);
+        Materie SC_2 = new Materie ("Bazele biblioteconomiei", 3);
+        Materie SC_3 = new Materie ("Psihologia educatiei", 2);
+        SC.adaugaMaterie(SC_1);
+        SC.adaugaMaterie(SC_2);
+        SC.adaugaMaterie(SC_3);
+        
+        LITERE.adaugaSpecializare(LL);
+        LITERE.adaugaSpecializare(SC);
+        
+        Adresa adresaFEFS = new Adresa("Galati", "Galati", "Strada Garii", 63, 800003, "+0336 130 171");
+        Adresa adresaFDSA = new Adresa("Galati", "Galati", "Strada Domneasca", 111, 800201, "+0236 493 370");
+        Facultate FEFS = new Facultate("Facultatea de Educație Fizică și Sport", adresaFEFS, "secretariat.fefs@ugal.ro", 1000, 50);
+        Facultate FDSA = new Facultate("Facultatea de Drept și Științe Administrative", adresaFDSA, "secretariat.fdsa@ugal.ro", 800, 40);
+        
+        Specializare K = new Specializare("Kinetoterapie", 100);
+        Materie K_1 = new Materie ("Kinetoterapie și motricitate speciala", 5);
+        Materie K_2 = new Materie ("Gimnastica de baza", 3);
+        Materie K_3 = new Materie ("Anatomie functionala", 4);
+        Specializare EdF = new Specializare("Educatie Fizica si Sport", 150);
+        Materie EdF_1 = new Materie ("Educație fizica și sportiva", 5);
+        Materie EdF_2 = new Materie ("Fundamentele stiintifice ale jocurilor sportive", 4);
+        Materie EdF_3 = new Materie ("Anatomie", 5);
+        K.adaugaMaterie(K_1);
+        K.adaugaMaterie(K_2);
+        K.adaugaMaterie(K_3);
+        EdF.adaugaMaterie(EdF_1);
+        EdF.adaugaMaterie(EdF_2);
+        EdF.adaugaMaterie(EdF_3);
+        FEFS.adaugaSpecializare(K);
+        FEFS.adaugaSpecializare(EdF);
+        
+        Specializare DR = new Specializare("Drept", 200);
+        Materie DR_1 = new Materie ("Teoria generala a statului", 5);
+        Materie DR_2 = new Materie ("Drept civil. Teorie generala", 4);
+        Materie DR_3 = new Materie ("Teoria constructiei UE", 2);
+        Specializare SA = new Specializare("Stiinte Administrative", 100);
+        Materie SA_1 = new Materie ("Comunicare in administratia publica", 4);
+        Materie SA_2 = new Materie ("Logica", 2);
+        Materie SA_3 = new Materie ("Stiinta administratiei", 4);
+        DR.adaugaMaterie(DR_1);
+        SA.adaugaMaterie(SA_1);
+        DR.adaugaMaterie(DR_2);
+        SA.adaugaMaterie(SA_2);
+        DR.adaugaMaterie(DR_3);
+        SA.adaugaMaterie(SA_3);
+        FDSA.adaugaSpecializare(DR);
+        FDSA.adaugaSpecializare(SA);
+        
+        catalog.adaugaFacultate(LITERE);
+        catalog.adaugaFacultate(FACIEE);
+        catalog.adaugaFacultate(FEFS);
+        catalog.adaugaFacultate(FDSA);
+        
+        
+        
+        catalog.adaugaStudent(stud1);
+        catalog.adaugaStudent(stud2);
+        catalog.adaugaStudent(stud3);
+        CatalogGUI test = new CatalogGUI(catalog);
+        test.setVisible(true);
     }
 }
