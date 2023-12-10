@@ -2,6 +2,8 @@
 
 public class Adresa {
 
+    //atributele clasei Adresa
+
     String judet;
     String oras;
     String numeleStrazii;
@@ -38,7 +40,6 @@ public class Adresa {
         this.codPostal = obj.codPostal;
         this.nrTelefon = obj.nrTelefon;
     }
-
     //metoda toString()
     @Override
     public String toString() {

@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
 public class CatalogTest {
 
@@ -106,5 +106,6 @@ public class CatalogTest {
         // test filtre multiple
         System.out.println("\n\n\n");
         System.out.println(ctl.toStringParametru(ctl.filtruOras("Tecuci",ctl.filtruNote(ctl.studenti))));
+        System.out.println("\n\n\n");
     }
 }
