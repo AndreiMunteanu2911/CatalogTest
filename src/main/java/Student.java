@@ -17,7 +17,6 @@ public class Student extends Persoana implements Serializable   {
     public Student() {
         super();
         this.nrMatricol = Student.CounterNrMatricol;
-        Student.CounterNrMatricol++;
         this.facultate = new Facultate();
         this.specializare = new Specializare();
         this.note = new HashMap < > ();

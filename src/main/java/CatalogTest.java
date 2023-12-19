@@ -193,17 +193,17 @@ public class CatalogTest {
         catalog.adaugaFacultate(FDSA);
         
         Student stud4 = new Student(30, "Alexandru", "Ionescu", "502732424333", "Timis", "Timisoara", "9 Mai", 3, 300085, "0236 215 432", LITERE, LL);
-        stud1.adaugaNota(LL_1, 10);
-        stud1.adaugaNota(LL_2, 6);
-        stud1.adaugaNota(LL_3, 7);
+        stud4.adaugaNota(LL_1, 10);
+        stud4.adaugaNota(LL_2, 6);
+        stud4.adaugaNota(LL_3, 7);
         Student stud5 = new Student(26, "Maria", "Stanciu", "502735364393", "Brasov", "Brasov", "Colinei", 7, 800216, "0236 233 543", FEFS, K);
-        stud1.adaugaNota(K_1, 6);
-        stud1.adaugaNota(K_2, 3);
-        stud1.adaugaNota(K_3, 7);
+        stud5.adaugaNota(K_1, 6);
+        stud5.adaugaNota(K_2, 3);
+        stud5.adaugaNota(K_3, 7);
         Student stud6 = new Student(20, "Vlad", "Aureliu", "502759325493", "Iasi", "Iasi", "Galata", 5, 800216, "0236 339 142", FDSA, SA);
-        stud1.adaugaNota(SA_1, 6);
-        stud1.adaugaNota(SA_2, 9);
-        stud1.adaugaNota(SA_3, 8);
+        stud6.adaugaNota(SA_1, 6);
+        stud6.adaugaNota(SA_2, 9);
+        stud6.adaugaNota(SA_3, 8);
         
         
         

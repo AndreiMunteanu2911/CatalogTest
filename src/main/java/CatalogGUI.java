@@ -91,7 +91,7 @@ public class CatalogGUI extends javax.swing.JFrame {
         jButtonCitire = new javax.swing.JButton();
         jButtonScriere = new javax.swing.JButton();
         jButtonStergere = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        Aleatoriu = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -314,10 +314,10 @@ public class CatalogGUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Adauga Student Generat Aleatoriu");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Aleatoriu.setText("Adauga Student Generat Aleatoriu");
+        Aleatoriu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AleatoriuActionPerformed(evt);
             }
         });
 
@@ -396,7 +396,7 @@ public class CatalogGUI extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(194, 194, 194)
-                                        .addComponent(jButton1))
+                                        .addComponent(Aleatoriu))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(236, 236, 236)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -478,7 +478,7 @@ public class CatalogGUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButtonStergere)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
+                        .addComponent(Aleatoriu)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                         .addComponent(jCheckBoxNote)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -725,7 +725,7 @@ public class CatalogGUI extends javax.swing.JFrame {
         model.removeRow(jTableStudenti.getSelectedRow());
     }//GEN-LAST:event_jButtonStergereActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AleatoriuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AleatoriuActionPerformed
         // TODO add your handling code here:
         Student stud=this.catalog.GenereazaStudentAleatoriu();
         Object[] row = { stud.nrMatricol, stud.nume, stud.prenume , stud.facultate.nume };
@@ -735,7 +735,7 @@ public class CatalogGUI extends javax.swing.JFrame {
         model.addRow(row);
         DefaultComboBoxModel<String> model2 = new DefaultComboBoxModel<>(this.catalog.orase.toArray(new String[0]));
         jComboBoxFiltruOras.setModel(model2);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AleatoriuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -773,7 +773,7 @@ public class CatalogGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Aleatoriu;
     private javax.swing.JButton jButtonAdaugaStudent;
     private javax.swing.JButton jButtonAplicaFiltrele;
     private javax.swing.JButton jButtonCitire;

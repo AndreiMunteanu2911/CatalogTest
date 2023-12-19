@@ -28,7 +28,11 @@ public class Catalog implements Serializable{
         this.studenti.add(s);
         this.orase.add(s.adresa.oras);
     }
-
+    
+    public void adaugaFacultate (Facultate fac){
+        this.facultati.add(fac);
+    }
+    
     // filtreaza studentii dupa note (studentii cu toate notele > 5)
     public ArrayList<Student> filtruNote(ArrayList<Student> initial){
         ArrayList<Student> filtrat = new ArrayList<Student>();
@@ -99,9 +103,7 @@ public class Catalog implements Serializable{
         return ret.toString();
     }
     
-    public void adaugaFacultate (Facultate fac){
-        this.facultati.add(fac);
-    }
+
    
     
     public String toString(){
